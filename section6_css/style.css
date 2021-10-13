@@ -6,14 +6,28 @@ body{
     background-size: cover;
 }
 
-h2{
+p{
   color: #AA4139;
   text-align: center;
   border: 5px solid rgba(255, 176, 170,0.5);
   cursor: pointer;
 }
 p{
-  color: green;
+  line-height: 5px;
+  text-transform:
+  font-style: italic;
+  font-weight: bold;
+  font-size: 100%;
+  font-family: 'Poiret One', cursive;
+}
+
+img{
+  float: right;
+}
+
+footer{
+  clear: both;
+  text-align: center;
 }
 
 li{
