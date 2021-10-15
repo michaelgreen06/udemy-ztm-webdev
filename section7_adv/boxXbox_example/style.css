@@ -1,0 +1,17 @@
+.bbox{
+
+}
+
+.box1{
+  width: 40px;
+  height: 125px;
+  background-color: blue;
+  display: inline-block;
+}
+
+.box2{
+  width: 40px;
+  height: 125px;
+  background-color: blue;
+
+}

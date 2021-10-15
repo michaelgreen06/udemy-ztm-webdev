@@ -87,6 +87,7 @@ h1 {
 
 .right_leg {
 	margin-left: 120px;
+	display: inline-block;
 }
 
 .left_eye, .right_eye {
