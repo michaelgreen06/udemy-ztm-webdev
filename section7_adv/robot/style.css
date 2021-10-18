@@ -23,6 +23,7 @@ h1 {
 	margin-bottom: 10px;
 }
 
+
 .eyes {
 
 }
@@ -64,13 +65,13 @@ h1 {
 	height: 200px;
 	/* This is another useful property. Hmm what do you think it does?*/
 	margin: 0 auto;
-
 }
 
 .left_leg, .right_leg {
 	width: 40px;
 	height: 120px;
 	border-radius: 0 0 40px 40px;
+	display: inline-block;
 }
 
 .left_leg {
@@ -86,8 +87,8 @@ h1 {
 }
 
 .right_leg {
-	margin-left: 120px;
-	display: inline-block;
+	margin-left:35px; /*I changed this from 45px to 35px to get the legs to line up*/
+	display: inline-block; /*I added this so the legs could share the same line*/
 }
 
 .left_eye, .right_eye {
@@ -95,6 +96,7 @@ h1 {
 	height: 20px;
 	border-radius: 15px;
 	background-color: white;
+	display: inline-block; /*I added this to center eye elements vertically*/
 }
 
 .left_eye {

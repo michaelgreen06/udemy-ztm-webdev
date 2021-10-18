@@ -1,17 +1,18 @@
-.bbox{
-
+.test, div{
+  display: inline-block;
 }
 
 .box1{
   width: 40px;
   height: 125px;
   background-color: blue;
-  display: inline-block;
+  /* border: solid red 2px; */
+  margin: 10px;
 }
 
 .box2{
   width: 40px;
   height: 125px;
-  background-color: blue;
+  background-color: red;
 
 }
