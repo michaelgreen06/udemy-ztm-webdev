@@ -100,7 +100,7 @@
                         <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>
                     </div>
                     <div class="text-center">
-                        <h3>Make with love</h3>
+                        <h3>Made with love</h3>
                     </div>
                     <div>
                         <p>Right now the model of VC funded web tech that soley functions to maximize
@@ -134,6 +134,13 @@
 
 
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                      <!-- I moved this ol here because that is what w3 has in their example. Hoping that this
+                      helps to get the slide advance chevrons to show up. Didn't work :( (https://www.w3schools.com/bootstrap/bootstrap_carousel.asp) -->
+                      <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      </ol>
 
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
@@ -155,20 +162,11 @@
                                 </div>
                             </div>
                         </div>
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <!-- Left and right controls -->
-  <a class="left carousel-control" href="#carouselExampleIndicators" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carouselExampleIndicators" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
+
+                        <!-- Left and right carousel controls -->
+                        <!-- I tried to get this to work but couldn't figure out how to get the
+                        change slide chevrons to show up after 1hr of research and gave up -->
+ -->
 </div>
                     </div>
 
@@ -176,26 +174,26 @@
                 </div>
             </div>
     </div>
-</div>
-
 
 <div class="section-container background-color-container white-text-container">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="text-center">
-                    <h2>Vivamus laoreet</h2>
-                    <p> Auctor augue mauris augue neque. Posuere lorem ipsum dolor sit amet consectetur adipiscing. Porta non
-                        pulvinar neque laoreet. Viverra ipsum nunc aliquet bibendum. Iaculis urna id volutpat lacus. Turpis
-                        egestas pretium aenean pharetra magna ac. Id cursus metus aliquam eleifend mi. </p>
-                    <a href="./download.html" title="" class="btn btn-primary btn-lg">Download</a>
+                    <h2>Join us!</h2>
+                    <p> Follow us, ironically, on social media :p, to stay up to date with
+                    all that we are doing to make these systems more human focused. Let's all work
+                  together to make these things better </p>
+                    <a href="./download.html" title="" class="btn btn-primary btn-lg">Follow Us</a>
                 </div>
             </div>
         </div>
      </div>
  </div>
 
- <div class="section-container">
+ <!-- I commented out this section because it doesn't go w/ the design I've created.  -->
+
+ <!-- <div class="section-container">
     <div class="container">
         <div class="row">
             <div class="col-md-7">
@@ -239,7 +237,7 @@
 
         </div>
     </div>
-</div>
+</div> -->
 
 
 
@@ -252,7 +250,7 @@
             <div class="row">
                     <div class="col-md-4">
                         <h4>About us</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet consectetur dolor</p>
+                        <p>Learn more about us and how you can join us!</p>
                     </div>
 
                     <div class="col-md-4">
@@ -268,7 +266,7 @@
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                           </a>
                         </p>
-                        <p><small>© Untitled | Website created with <a href="http://www.mashup-template.com/" class="link-like-text" title="Create website with free html template">Mashup Template</a>/<a href="http://www.unsplash.com/" class="link-like-text" title="Beautiful Free Images">Unsplash</a></small></p>
+                        <p><small>© MSG Creative | Website created with <i class="fa fa-heart-o fa-1x" aria-hidden="true"></i></small></p>
                     </div>
 
                     <div class="col-md-4">
