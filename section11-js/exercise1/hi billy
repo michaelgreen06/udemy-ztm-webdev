@@ -1,0 +1,28 @@
+var name = prompt("what is your name");
+if (name==="Billy"){
+    alert("Hi Billy!");
+    }
+else if(name==="Susy"){
+alert("Hi Suzeeee!");
+}
+else {
+alert("hmmmmm I don't know you");
+}
+
+
+// New Section
+
+var name = prompt("What be'th ye name?!");
+if (name === "Billy" || name=== "Anne"){
+  alert("Hi friedn!");
+}
+
+var firstName = prompt("What be'th ye name?!");
+var lastName = prompt("What be'th ye 2nd name?!");
+if (firstName==="bob" && lastName==="proctor"){
+  alert("hi bobby PEEEEEEE");
+}
+
+if (!(name==="bob")){
+  alert("hi Not bob!");
+}
