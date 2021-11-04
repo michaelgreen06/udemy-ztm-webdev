@@ -17,11 +17,7 @@ function sign(song){
 sign("ladeda");
 sign("tatateteta");
 
-function multiply(a,b){
-    if (a>10 || b>10) {
-      return "that's childs play";
-    }
-else {
+function multiply (a,b){
   return a*b;
 }
-}
+alert(multiply(3,4));
