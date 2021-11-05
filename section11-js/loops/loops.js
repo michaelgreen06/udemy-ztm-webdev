@@ -1,3 +1,4 @@
+//for loops
 var todos=[
   "clean room",
   "brush teeth",
