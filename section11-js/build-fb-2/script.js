@@ -28,35 +28,26 @@ var newsfeed=[
   },
 ];
 
+function isUserValid(username, password){
+  for (var i=0; i<database.length; i++){
+    if(database[i].username===username &&
+    database[i].password===password){
+    return true;
+    }
+        }
+        return false;}
+
 function signIn(username, password){
-for (var i=0; i<database.length; i++){
-  if(database[i].username===username &&
-  database[i].password===password){
+  if (isUserValid(username,password)){
     console.log(newsfeed);
   }
   else{
-    alert("sorry, wrong username & password");
-      }
-}}
+      alert("sorry, wrong username & password");
+        }
+}
 
-//{
-//   if (username===database[0].username &&
-//    password===database[0].password){
-//       console.log(newsfeed);
-//     }
-//     else{
-//       alert("sorry, wrong username & password");
-//     }
-// }
-//my guess at the proper signin loop
-// database.forEach(function(username,password)){
-//   if (username===database[i].username &&
-//     password===database[i].password){
-//       console.log(newsfeed);
-// }
-
-var userNamePrompt=prompt("What's your username?");
-var passwordPrompt=prompt("what's your password?");
+var userNamePrompt=prompt("What\'s your username?");
+var passwordPrompt=prompt("what\'s your password?");
 
 
 signIn(userNamePrompt,passwordPrompt);
