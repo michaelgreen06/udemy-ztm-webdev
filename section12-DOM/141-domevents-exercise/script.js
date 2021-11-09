@@ -1,7 +1,7 @@
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
-var lii = document.querySelector("li");
+var lii = document.querySelectorAll("li");
 //I get an error whenever I define a variable as something that returns
 //more than one result. This happens w/ the below code:
 // var lii = document.querySelectorAll("li");
@@ -31,15 +31,33 @@ function addListAfterKeypress(event) {
 }
 
 function addDoneClass(){
+	for (var index = 0; index <lii.length; index++){
+		 lii[index].addEventListener("click", function(){
+				lii.classList.toggle("done");
+		 });   }
+
 	// document.querySelector("lii").classList.toggle("done");
 	// ul.classList.toggle("done");
-	lii.classList.toggle("done");
+	// lii.classList.toggle("done");
 }
 
 button.addEventListener("click", addListAfterClick);
-
 input.addEventListener("keypress", addListAfterKeypress);
+lii.addEventListener("click", addDoneClass);
 
 // my 1st guess at selecting li's
 // ul.addEventListener("click", addDoneClass);
-lii.addEventListener("click", addDoneClass);
+// lii.addEventListener("click", addDoneClass);
+
+
+//acquired from: https://www.tutorialspoint.com/how-to-remove-li-elements-on-button-click-in-javascript
+// var allSubjectName = document.querySelectorAll(".subjectName");
+//    for (var index = 0; index <allSubjectName.length; index++){
+//       allSubjectName[index].addEventListener("click", function(){
+//          this.classList.toggle("active");
+//       });
+//       allSubjectName[index].querySelector("button").addEventListener("click",
+//       function(){
+//          this.closest(".subjectName").remove();
+//       });
+//    }
