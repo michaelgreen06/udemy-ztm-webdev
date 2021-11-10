@@ -33,17 +33,23 @@ function addListAfterKeypress(event) {
 function addDoneClass(){
 	for (var index = 0; index <lii.length; index++){
 		 lii[index].addEventListener("click", function(){
-				lii.classList.toggle("done");
-		 });   }
+				this.classList.toggle("done");
+		 });}}
+
+//copied & pasted above function hoping to do a callback because it seems cleaner
+ // function addDoneClass(){
+ // 	for (var index = 0; index <lii.length; index++){
+ // 		 lii[index].classList.toggle("done");
+ // 		 };   }
 
 	// document.querySelector("lii").classList.toggle("done");
 	// ul.classList.toggle("done");
 	// lii.classList.toggle("done");
-}
+
 
 button.addEventListener("click", addListAfterClick);
 input.addEventListener("keypress", addListAfterKeypress);
-lii.addEventListener("click", addDoneClass);
+addDoneClass();
 
 // my 1st guess at selecting li's
 // ul.addEventListener("click", addDoneClass);
