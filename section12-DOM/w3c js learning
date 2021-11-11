@@ -1,0 +1,16 @@
+W3C SideTrack Learning Notes
+
+- let doesn't allow re-declaration of variables
+	- var does
+- let & const have block scope
+	- block scope was intro'd in 2015
+- Variables defined with var are hoisted to the top and can be initialized at any time
+- Variables defined with let are also hoisted to the top of the block, but not initialized.
+- Variables defined with const cannot be Redeclared.
+- As a general rule, always declare a variable with const unless you know that the value will change.
+- Variables defined with const are also hoisted to the top, but not initialized.
+- Inside a function, the arguments (the parameters) behave as local variables.
+- Accessing a function without () will return the function object instead of the function result.
+- A method is a function stored as a property.
+- In a function definition, this refers to the "owner" of the function.
+- Avoid String, Number, and Boolean objects. They complicate your code and slow down execution speed.
