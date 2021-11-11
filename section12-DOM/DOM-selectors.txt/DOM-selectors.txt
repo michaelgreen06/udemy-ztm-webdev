@@ -22,7 +22,7 @@ classList.toggle
 
 ##Bonus
 innerHTML //DANGEROUS
-
+ 
 parentElement
 children
 
