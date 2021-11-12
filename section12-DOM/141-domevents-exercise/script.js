@@ -10,9 +10,15 @@ function inputLength() {
 
 function createListElement() {
 	var li = document.createElement("li");
+	var btn = document.createElement("button");
+
 	li.appendChild(document.createTextNode(input.value));
 	ul.appendChild(li);
 	input.value = "";
+	btn.innerHTML="Delete";
+	li.appendChild(btn);
+	btn.onclick=function(){
+		li.remove();}
 	li.onclick=function(){
 		this.classList.toggle("done");
 	}
