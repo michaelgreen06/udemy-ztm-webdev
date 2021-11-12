@@ -13,6 +13,9 @@ function createListElement() {
 	li.appendChild(document.createTextNode(input.value));
 	ul.appendChild(li);
 	input.value = "";
+	li.onclick=function(){
+		this.classList.toggle("done");
+	}
 
 }
 
@@ -27,6 +30,8 @@ function addListAfterKeypress(event) {
 		createListElement();
 	}
 }
+
+
 
 function addDoneClass(){
 	for (var index = 0; index <lii.length; index++){
