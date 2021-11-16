@@ -2,6 +2,9 @@ var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
 // var dbtn = document.createElement("button");
+// var dbtn = function () {
+// 	document.createElement("button");
+// }
 
 function inputLength() {
 	return input.value.length;
@@ -14,10 +17,15 @@ function inputLength() {
 function createListElement() {
 	var li = document.createElement("li");
   var dbtn = document.createElement("button");
+	var dt = document.createTextNode("delete");
 	li.appendChild(document.createTextNode(input.value));
 	ul.appendChild(li);
 	input.value = "";
-  li.appendChild(dbtn).innerHTML="Delete";
+  // li.appendChild(dbtn).innerHTML="Delete";
+	// dbtn.appendChild(document.createTextNode("delete"));
+	// li.appendChild(dbtn).createTextNode("Delete");
+	dbtn.appendChild(dt);
+	li.appendChild(dbtn);
   li.onclick=function (){
     //used li but it looks like I could also use this. not sure which is better
     li.classList.toggle("done");
