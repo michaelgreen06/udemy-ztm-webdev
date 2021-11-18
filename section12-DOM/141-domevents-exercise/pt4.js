@@ -8,8 +8,16 @@ function inputLength() {
 }
 
 function adddel(){
-	for (var i = 0; i < gli.length; i++) {
-		gli[i].appendChild(document.createElement("button").createTextNode("value"))
+	for (var i = 0; i< gli.length; i++) {
+		var ddbtn=document.createElement("button");
+		gli[i].appendChild(ddbtn);
+		ddbtn.appendChild(document.createTextNode("Delete"));
+		// original code. top line works. bottom doesnt
+		//ascii says it's because .createTextNode() method is part of the document
+		// object, not the element you are creating. You will need to refer to the
+		// element you are creating and use .appendChild(document.createTextNode(someText)) on it.
+		// gli[i].appendChild(document.createElement("button"));
+		// gli[i].appendChild(document.createTextNode("Delete"));
 	}
 }
 
