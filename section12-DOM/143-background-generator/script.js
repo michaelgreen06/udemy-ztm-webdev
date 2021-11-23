@@ -4,12 +4,7 @@ var color2=document.querySelector(".color2");
 var body=document.getElementById("gradient");
 var random1=document.getElementById("random1");
 var random2=document.getElementById("random2");
-var c1= Math.floor(Math.random() * 256);
-var c2= Math.floor(Math.random() * 256);
-var c3= Math.floor(Math.random() * 256);
-var c4= Math.floor(Math.random() * 256);
-var c5= Math.floor(Math.random() * 256);
-var c6= Math.floor(Math.random() * 256);
+
 
 function init(){
   css.textContent="linear-gradient(to right, #ff0000, #ffff00);";
@@ -35,6 +30,12 @@ color2.addEventListener("input",setGradient);
 
 
 function randoGradient(){
+  var c1= Math.floor(Math.random() * 256);
+  var c2= Math.floor(Math.random() * 256);
+  var c3= Math.floor(Math.random() * 256);
+  var c4= Math.floor(Math.random() * 256);
+  var c5= Math.floor(Math.random() * 256);
+  var c6= Math.floor(Math.random() * 256);
   body.style.background=
     "linear-gradient(to right, rgb("
      + c1
