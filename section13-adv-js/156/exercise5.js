@@ -28,7 +28,12 @@ const array = [
 ];
 
 //Create an array using forEach that has all the usernames with a "!" to each of the usernames
+const uN=[];
+const newArray=array.forEach((username,team,score,items)=>{
+  uN.push(username + "!");
+})
 
+console.log("username!",uN);
 
 //Create an array using map that has all the usernames with a "? to each of the usernames
 
