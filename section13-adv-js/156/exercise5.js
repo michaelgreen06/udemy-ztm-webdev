@@ -27,9 +27,15 @@ const array = [
 
 ];
 
+
 //Create an array using forEach that has all the usernames with a "!" to each of the usernames
+
+// these resources may be helpufl
+//(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#objects_and_properties)
+//https://www.programiz.com/javascript/examples/extract-value-array
+
 const uN=[];
-const newArray=array.forEach((username,team,score,items)=>{
+const newArray=array.forEach((username)=>{
   uN.push(username + "!");
 })
 
