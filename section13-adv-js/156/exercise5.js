@@ -50,6 +50,15 @@ const newArray=array.forEach((obj)=>{
 
 console.log("username!",uN);
 
+//andrei solution:
+let newArray = []
+array.forEach(user => {
+	let { username } = user;
+	username = username + "!";
+	newArray.push(username);
+})
+console.log(newArray);
+
 //code from @junaid
 
 const arrayOfObjects = [{num: 10},{num:15}]
@@ -112,6 +121,13 @@ const mapArray=array.map(function(obj){
   return obj.username + "?";
 });
 
+//andrei solution:
+const mapArray = array.map(user => {
+	let { username } = user;
+	return username + "?";
+})
+console.log(mapArray);
+
 //Filter the array to only include users who are on team: red
 const result=array.filter(function(obj){
   return obj.team==="red";
@@ -119,6 +135,13 @@ const result=array.filter(function(obj){
 
 //same thing w/ ARROW notation!
 const result=array.filter((obj)=>obj.team==="red");
+
+//andrei solution:
+const filterArray = array.filter(user => {
+	return user.team === "red";
+})
+console.log(filterArray);
+
 
 //Find out the total score of all users using reduce
 //very helpfulto find answer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
@@ -131,6 +154,12 @@ array.reduce(reducer,0);// had to provide an intial value so each item could pas
 //same as above but in arrow notation
 
 const reducer = (prev,curr)=>prev+curr.score;
+
+//andrei solution:
+const total = array.reduce((acc, user) => {
+	return acc + user.score
+}, 0);
+console.log(total);
 
 // (1), what is the value of i? - index #
 // (2), Make this map function pure:-to make it pure eliminate the alert & console.log
