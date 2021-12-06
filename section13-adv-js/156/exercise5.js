@@ -126,12 +126,14 @@ const reducer= function (prev,curr){
   return prev+curr.score;
 }
 
-array.reduce(reducer);
+array.reduce(reducer,0);// had to provide an intial value so each item could pass through the array!
 
+//same as above but in arrow notation
 
+const reducer = (prev,curr)=>prev+curr.score;
 
-// (1), what is the value of i?
-// (2), Make this map function pure:
+// (1), what is the value of i? - index #
+// (2), Make this map function pure:-to make it pure eliminate the alert & console.log
 const arrayNum = [1, 2, 4, 5, 8, 9];
 const newArray = arrayNum.map((num, i) => {
 	console.log(num, i);
@@ -139,4 +141,36 @@ const newArray = arrayNum.map((num, i) => {
 	return num * 2;
 })
 
+//pure const newArray
+const newArray = arrayNum.map((num, i) => num * 2);
+
+
 //BONUS: create a new list with all user information, but add "!" to the end of each items they own.
+
+//my answer I was initally very close
+//thing that trhew me off was item vs items. use items when I want to call the actual property
+//use item when it is for each individual item.
+const ans = array.map(function(user){
+  user.items=user.items.map(function(item){
+    return item + "!";
+  })
+  return user;
+})
+
+// andrei answer
+const answer = array.map(user => {
+	user.items = user.items.map(item => {
+		return item + "!"
+	});
+	return user;
+})
+console.log(answer);
+
+//andrei in function notation
+const answer = array.map(function (user){
+	user.items = user.items.map(function (item) {
+		return item + "!"
+	});
+	return user;
+})
+console.log(answer);
