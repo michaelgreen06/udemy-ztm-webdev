@@ -8,7 +8,7 @@ array3.flat();
 const entries=["bob",'sally',,,,,,'comdu']
 entries.flat();
 
-//uses basic map function then flattens the result to a depth of 1
+//uses basic map function then flattens the result to a depth of 1 update
 flatMap()
 const jurassicParkChaos=jurassicPark.flatMap(creature=>creature + "🐱‍🐉")
 

@@ -34,6 +34,17 @@ const users = { user1: 18273, user2: 92833, user3: 90315 }
 const usersArray=Object.entries(users);
 usersArray.map((user,id)=>id*2);
 
+usersArray.forEach(function(user,id){
+  console.log(id*2);
+});
+
+function arrayIt()
+for (var i = 0; i <= 2; i++) {
+  usersArray[i][1]*2
+}
+
+usersArray[arrayIt()];
+
 
 //#8 change the output array of question #7 back into an object with all the users IDs updated to
 //their new version. Should output: { user1: 36546, user2: 185666, user3: 180630 }
