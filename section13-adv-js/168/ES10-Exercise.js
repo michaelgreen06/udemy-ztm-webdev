@@ -52,17 +52,23 @@ for (var i = 0; i <= 2; i++) {
 usersArray.map(arrayIt);
 //is performing the for loop for each element. That's redunant looping! I only need map!
 
-// below code maps over array 0 & gives the expected result. 
+
 function arrayIt(user,id){
 return id*2;
 }
 
+// below code maps over array 0 & gives the expected result.
 const users = { user1: 18273, user2: 92833, user3: 90315 }
 const usersArray=Object.entries(users);
 
 function arrayIt(user,id){
 return [user][id*2];
 }
+
+function mapfor(){
+for (var i = 0; i <= 2; i++) {
+  usersArray[i].map(arrayIt);
+}}
 
 usersArray.map(arrayIt);
 
