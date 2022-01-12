@@ -65,6 +65,8 @@ function arrayIt(user,id){
 return [user][id*2];
 }
 
+//doesn't need to be a function. can be run as simply a for loop.
+//when it is run it only outputs the last array
 function mapfor(){
 for (var i = 0; i <= 2; i++) {
   usersArray[i].map(arrayIt);
@@ -72,6 +74,60 @@ for (var i = 0; i <= 2; i++) {
 
 usersArray.map(arrayIt);
 
+//testing this problem 1 array at a time to understand where my above code is failing.
+const users = ['user1', 18273]
+function arrayIt(user,id){
+return [user][id*2];
+}
+users.map(arrayIt);
+
+//solution from geekyorion:
+function arrayIt(user, index) {
+    return index === 1 ? user * 2 : user;
+}
+
+//tilt497 solution:
+const users = ['user1', 18273];
+let newArray = users.map((x, i) => {
+  if (typeof x === 'number') {
+    return x * 2;
+  } else return x;
+});
+
+console.log(newArray);
+
+//Tried for many hours to solve using for loop and gave up because I believe
+//I need a forEach loop to sovle
+
+//to solve this concisely I think I need a forEach loop.
+const users = { user1: 18273, user2: 92833, user3: 90315 }
+const usersArray=Object.entries(users);
+usersArray.forEach(mult2);
+function mult2 (current,index,array){
+  index[1]*2;
+}
+
+//Andrei's Solution
+const users = { user1: 18273, user2: 92833, user3: 90315 }
+const usersArray=Object.entries(users);
+updatedUsersArray = usersArray.map((user) => [user[0], user[1] * 2])
+//my deconstruction:
+//was struggling at first becuase I forgot to add return statement!
+updatedUsersArray = usersArray.map(aFunc);
+function aFunc (user){
+return  [user[0], user[1] * 2];
+}
+
+
+const usersArray=[ [ 'user1', 18273 ], [ 'user2', 92833 ], [ 'user3', 90315 ] ]
+updatedUsersArray = usersArray.map(function (user){
+[user[0], user[1] * 2];
+})
 
 //#8 change the output array of question #7 back into an object with all the users IDs updated to
 //their new version. Should output: { user1: 36546, user2: 185666, user3: 180630 }
+
+//#7 will output this:
+const users=[ [ 'user1', 36546 ], [ 'user2', 185666 ], [ 'user3', 180630 ] ]
+//this chagnes output to an object
+Object.fromEntries(users);
