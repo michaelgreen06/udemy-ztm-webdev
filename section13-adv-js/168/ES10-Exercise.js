@@ -111,23 +111,35 @@ function mult2 (current,index,array){
 const users = { user1: 18273, user2: 92833, user3: 90315 }
 const usersArray=Object.entries(users);
 updatedUsersArray = usersArray.map((user) => [user[0], user[1] * 2])
+
 //my deconstruction:
 //was struggling at first becuase I forgot to add return statement!
-updatedUsersArray = usersArray.map(aFunc);
+const users = { user1: 18273, user2: 92833, user3: 90315 }
+const usersArray=Object.entries(users);
 function aFunc (user){
 return  [user[0], user[1] * 2];
 }
+updatedUsersArray = usersArray.map(aFunc);
+//in the above solution map works because it calls a function on each array element
+//because there are nested arrays, each array inside the array is an element of that
+//encompassing array
 
 
-const usersArray=[ [ 'user1', 18273 ], [ 'user2', 92833 ], [ 'user3', 90315 ] ]
-updatedUsersArray = usersArray.map(function (user){
-[user[0], user[1] * 2];
-})
 
 //#8 change the output array of question #7 back into an object with all the users IDs updated to
 //their new version. Should output: { user1: 36546, user2: 185666, user3: 180630 }
+//map returns an array for each array in the array because they are treated as elements fo that array!
 
 //#7 will output this:
 const users=[ [ 'user1', 36546 ], [ 'user2', 185666 ], [ 'user3', 180630 ] ]
 //this chagnes output to an object
 Object.fromEntries(users);
+
+//full solution:
+const users = { user1: 18273, user2: 92833, user3: 90315 }
+const usersArray=Object.entries(users);
+const updatedUsers=usersArray.map(afunc);
+function afunc(x){
+  return [x[0],x[1]*2]
+}
+Object.fromEntries(updatedUsers);
