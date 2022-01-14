@@ -4,6 +4,13 @@ const detailedBasket={
   oranges:10,
   grapes:1
 }
+//arrays are also objects!
+const basket={
+  0:'apples',
+  1:'oranges',
+  2:'grapes '
+
+}
 //1 for loop we already know
 for (var i = 0; i < basket.length; i++) {
   console.log(basket[i]);
