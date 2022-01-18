@@ -37,8 +37,23 @@ function biggestNumberInArray(arr) {
   arr.sort((a, b) => b - a);
   console.log(arr);
 }
-//likely need to use filter!
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+//maybe use filter?
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+//maybe not though because then I wouldn't use a loop
+
+//maybe I use an if statement if i>i+1 return i else return i+1
+for (var i = 0; i < array.length; i++) {
+  if (array[i]>array[i+1]) {
+    console.log(array[i]);
+  }
+}
+
+//this code puts an array in ascending order
+array.sort(function(a, b){
+           return a - b;
+       });
+
+
 function biggestNumberInArray2(arr) {
 
 }
