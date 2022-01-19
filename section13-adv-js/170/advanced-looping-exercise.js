@@ -72,22 +72,66 @@ function biggestNumberInArray(arr){
 }
 
 //solving using forEach loop
+//this solution kinda works. Problem is, it holds highest value because of where
+//let highest =0 is defined.
 function biggestNumberInArray2(arr){
   arr.forEach(myFunc);
-
+  return highest;
 }
 let highest=0;
-function myFunc (item,index,arr){
+function myFunc (i){
     if(highest<i){
       highest=i;
     }
-    return highest;
   }
 
-
-function biggestNumberInArray3(arr) {
-
+//my solution imitating Andrei's
+function biggestNumberInArray2(arr){
+  let highest=0;
+  arr.forEach(myFunc)
+  return highest;
 }
+
+function myFunc (i){
+    if(highest<i){
+      highest=i;
+    }
+  }
+
+//Andrei's solution:
+function biggestNumberInArray2(arr) {
+  let highest = 0;
+  arr.forEach(item => {
+    if (highest < item) {
+      highest = item;
+    }
+  })
+  return highest;
+}
+
+//andreis forEach function in trad notation
+function biggestNumberInArray2(arr) {
+  let highest = 0;
+  arr.forEach(hisFunc)
+  return highest;
+}
+  function hisFunc (item) {
+    if (highest < item) {
+      highest = item;
+    }}
+
+
+//my solution. Worked on first try!!!
+function biggestNumberInArray3(arr) {
+  let highest = 0;
+  for (item of arr){
+    if (highest < item) {
+      highest = item;
+    }
+  }
+return highest;
+}
+
 
 
 // Question #2:
