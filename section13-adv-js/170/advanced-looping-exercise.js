@@ -72,19 +72,18 @@ function biggestNumberInArray(arr){
 }
 
 //solving using forEach loop
-function biggestNumberInArray2(arr) {
-  array.sort(function(a, b){
-             return a - b;
-         });
-  array.forEach(func);
+function biggestNumberInArray2(arr){
+  arr.forEach(myFunc);
 
-  function func (arr){
-    if (array[i]>array[i+1]) {
-      console.log(array[i]);
+}
+let highest=0;
+function myFunc (item,index,arr){
+    if(highest<i){
+      highest=i;
     }
-    else if (typeof array[i+1]==="undefined") {
-      console.log(array[i]);
-    }}
+    return highest;
+  }
+
 
 function biggestNumberInArray3(arr) {
 
