@@ -143,10 +143,35 @@ const amazonBasket = {
 }
 //og function
 function checkBasket(basket, lookingFor) {
-  for (lookingFor in basket){
-    if lookingFor=
-  }
+
 }
+
+//andrei's solution
+function checkBasket(basket, lookingFor) {
+  for (item in basket) {
+    if (item === lookingFor) {
+      return `${lookingFor} is in your basket`
+    }
+  }
+  return 'that does not exist in your basket'
+}
+
+//my try @ andrei's solution:
+//when I was solving on my own I didn't realize I could have item
+//in the for in statement in addition to lookingFor!
+function checkBasket(basket, lookingFor) {
+  for(item in basket){
+    if(item===lookingFor){
+      return `${lookingFor} is in your basket!`);
+    }
+    }
+      return `${lookingFor} is not in your basket. You should probs buy it!!!`
+  }
+
+
+
+
+
 //1st try report value of key if found
 function checkBasket(basket,x) {
   for (let x in basket){
@@ -158,3 +183,26 @@ function checkBasket(basket,x) {
   }
   }
 }
+
+//logs 1,2,100
+for (let x in amazonBasket){
+  console.log(amazonBasket[x]);}
+
+//Use values to determine if it's in checkBasket
+for (let item in amazonBasket){
+  if(amazonBasket[item]){
+  }
+}
+
+let valueForKey =
+
+
+
+
+
+
+
+
+
+
+kj
