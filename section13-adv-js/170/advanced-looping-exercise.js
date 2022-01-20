@@ -136,12 +136,25 @@ return highest;
 
 // Question #2:
 // Write a function checkBasket() that lets you know if the item is in the basket or not
-amazonBasket = {
+const amazonBasket = {
   glasses: 1,
   books: 2,
   floss: 100
 }
-
+//og function
 function checkBasket(basket, lookingFor) {
-
+  for (lookingFor in basket){
+    if lookingFor=
+  }
+}
+//1st try report value of key if found
+function checkBasket(basket,x) {
+  for (let x in basket){
+    if (basket[x]>0){
+    return "In your basket! You have " + basket[x] + "in your basket";
+  }
+  else {
+    return "You should probs buy this!";
+  }
+  }
 }
