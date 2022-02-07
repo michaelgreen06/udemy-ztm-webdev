@@ -28,19 +28,42 @@ const urls = [
   "https://jsonplaceholder.typicode.com/albums",
 ];
 //my solution
+//It wasn't working to define fetchUsers as a const outside of the map function
+//declaring it in the global scope fixed the problem but that seems improper syntax?
+//promises.all is expecting an array of promises and my original code was basically
+//passing it a chunk of code instead of an array of promises
+const fetchUsers=async function (url){
+  const resp=await fetch(url);
+  return resp.json();
+}
 const getData = async function () {
   const [users, posts, albums] = await Promise.all(
     urls.map(fetchUsers)
-    const fetchUsers=async function (url){
-      const resp=await fetch(url);
-      return resp.json();
-    })
+    );
   console.log("users", users);
   console.log("posta", posts);
   console.log("albums", albums);
   }
 //andrei solution:
   const getData = async function () {
+    try{
+      const [users, posts, albums] = await Promise.all(
+        urls.map(async function (url) {
+          const response = await fetch(url);
+          return response.json();
+        }),
+      );
+      console.log("users", users);
+      console.log("posta", posts);
+      console.log("albums", albums);
+    }catch(err){
+      console.log('oops!',err);
+    }
+  };
+
+//andrei sol3
+const getData = async function () {
+  try {
     const [users, posts, albums] = await Promise.all(
       urls.map(async function (url) {
         const response = await fetch(url);
@@ -50,8 +73,10 @@ const getData = async function () {
     console.log("users", users);
     console.log("posta", posts);
     console.log("albums", albums);
-  };
-
+  } catch (err) {
+    console.log("ooooooops", err);
+  }
+};
 
 //OG function:
 const getData=async function(){
