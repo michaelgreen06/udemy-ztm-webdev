@@ -17,7 +17,7 @@ class App extends React.Component { //Andrei has extends Component. doesn't incl
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learning React
+            Learning to code React
           </a>
         </header>
       </div>
