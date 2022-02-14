@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Locate from './Locate'
+import Locate from './Locate';
+import 'tachyons';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Locate />
     <App />
+    <Locate />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
