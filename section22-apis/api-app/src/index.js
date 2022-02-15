@@ -9,7 +9,7 @@ import 'tachyons';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Locate />
+    <Locate greeting={'Hello Space Station!!'}/>
 
   </React.StrictMode>,
   document.getElementById('root')
