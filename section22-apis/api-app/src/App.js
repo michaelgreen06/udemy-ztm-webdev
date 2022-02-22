@@ -18,6 +18,7 @@ class App extends React.Component { //Andrei has extends Component. doesn't incl
             rel="noopener noreferrer"
           >
             Learning to code React and apis. Time AWAY!
+            Why isn't it updating in GITHUB?
           </a>
         </header>
       </div>
