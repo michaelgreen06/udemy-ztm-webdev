@@ -19,6 +19,7 @@ class App extends React.Component { //Andrei has extends Component. doesn't incl
           >
             Learning to code React and apis. Time AWAY!
             Why isn't it updating in GITHUB?
+            I will use this app to build on etherscan API
           </a>
         </header>
       </div>
