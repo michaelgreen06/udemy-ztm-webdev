@@ -5,11 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Locate from './Locate';
 import 'tachyons';
+import SearchBox from './SearchBox'
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
     <Locate greeting={'Hello Space Station!!'}/>
+    <SearchBox />
 
   </React.StrictMode>,
   document.getElementById('root')
