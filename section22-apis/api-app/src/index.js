@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Locate from './Locate';
+// import Locate from './Locate';
 import 'tachyons';
-import SearchBox from './SearchBox'
+// import SearchBox from './SearchBox'
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Locate greeting={'Hello Space Station!!'}/>
-    <SearchBox />
 
   </React.StrictMode>,
   document.getElementById('root')
