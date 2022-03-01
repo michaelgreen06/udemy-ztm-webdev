@@ -14,3 +14,5 @@ const SearchBox = ({searchChange})=>{
 }
 
 export default SearchBox;
+
+//how do I get these results to modify the api url?!
