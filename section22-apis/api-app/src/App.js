@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import React from 'react'; //andrei uses destructurring in vid225: import React, {Component} from 'react';
+import React, {Component} from 'react'; //andrei uses destructurring in vid225: import React, {Component} from 'react';
 import SearchBox from './SearchBox'
 
 // class App extends React.Component { //Andrei has extends Component. doesn't include React
@@ -27,13 +27,30 @@ import SearchBox from './SearchBox'
 //     );
 //   }
 // }
-const App=()=>{
-  return(
-    <div className='tc'>
-      <h1>MultiSig Gas Tracker</h1>
-      <SearchBox/>
-    </div>
-  );
+const state = {
+robots:robots,
+searchfield:''
 }
+
+class App extends Component{
+  render(){
+    return(
+      <div className='tc'>
+        <h1>MultiSig Gas Tracker</h1>
+        <SearchBox/>
+      </div>
+    );
+  }
+}
+
+//old style before changing to class in order to utilize state
+// const App=()=>{
+//   return(
+//     <div className='tc'>
+//       <h1>MultiSig Gas Tracker</h1>
+//       <SearchBox/>
+//     </div>
+//   );
+// }
 
 export default App;
