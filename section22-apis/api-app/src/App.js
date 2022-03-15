@@ -33,7 +33,7 @@ class App extends Component{
   constructor(){
     super()
     this.state={
-      robots:robots,//I ilkely will remove this for my app!
+      // robots:robots,//I ilkely will remove this for my app!
       searchfield:''
     }
   }
