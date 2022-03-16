@@ -18,6 +18,7 @@ import SearchBox from './SearchBox'
 //             target="_blank"
 //             rel="noopener noreferrer"
 //           >
+//I am adding this note so I can get a green block on github!
 //             Learning to code React and apis. Time AWAY!
 //             Why isn't it updating in GITHUB?
 //             I will use this app to build on etherscan API
