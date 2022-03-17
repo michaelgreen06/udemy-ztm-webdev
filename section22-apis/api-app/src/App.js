@@ -20,7 +20,7 @@ import SearchBox from './SearchBox'
 //           >
 //I am adding this note so I can get a green block on github!
 //             Learning to code React and apis. Time AWAY!
-//             Why isn't it updating in GITHUB?
+//             Why isn't it updating nin GITHUB?
 //             I will use this app to build on etherscan API
 //           </a>
 //         </header>
