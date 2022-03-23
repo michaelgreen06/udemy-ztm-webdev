@@ -35,7 +35,7 @@ class App extends Component{
     super()
     this.state={
       // robots:robots,//I ilkely will remove this for my app!
-      searchfield:''
+      searchfield:'',
     }
   }
   render(){
