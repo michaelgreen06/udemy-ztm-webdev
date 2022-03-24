@@ -29,6 +29,9 @@ import SearchBox from './SearchBox'
 //   }
 // }
 
+//Will i ever understand react?!
+// I think so! It's just taking me a while to fully grasp the concepts
+
 
 class App extends Component{
   constructor(){
