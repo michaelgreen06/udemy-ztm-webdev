@@ -31,6 +31,9 @@ import SearchBox from './SearchBox'
 
 //slow and steady is how I'm learning reactjs
 //Hoping I'll be able to make my simple app soon!
+//My Daily green square!
+//I'm not coding but am learning a lot!
+//hopefully next time I start coding it'll be easier because I've done so much learning!
 
 
 class App extends Component{
