@@ -1,3 +1,4 @@
+//must imprt modules!
 import React, {Component} from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
@@ -40,7 +41,7 @@ componentDidMount(){
         <Scroll>
           <ErrorBoundry>
             <CardList robots={filteredRobots}/>
-          </ErrorBoundry>  
+          </ErrorBoundry>
         </Scroll>
       </div>
     );
