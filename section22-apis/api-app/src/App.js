@@ -3,35 +3,6 @@ import './App.css';
 import React, {Component} from 'react'; //andrei uses destructurring in vid225: import React, {Component} from 'react';
 import SearchBox from './SearchBox'
 
-// class App extends React.Component { //Andrei has extends Component. doesn't include React
-//   render(){
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//I am adding this note so I can get a green block on github!
-//             Learning to code React and apis. Time AWAY!
-//             Why isn't it updating nin GITHUB?
-//             I will use this app to build on etherscan API
-//           </a>
-//         </header>
-//       </div>
-//     );
-//   }
-// }
-
-//Not sure how much more I need to learn before I can make the app I want
-//Do i want to use functional or class components? 
-
 
 class App extends Component{
   constructor(){
@@ -41,24 +12,19 @@ class App extends Component{
       searchfield:'',
     }
   }
+
+onSearchChange(event){
+  console.log(event.target.value);
+}
+
   render(){
     return(
       <div className='tc'>
         <h1>MultiSig Gas Tracker</h1>
-        <SearchBox/>
+        <SearchBox searchChange={this.onSearchChange}/>
       </div>
     );
   }
 }
-
-//old style before changing to class in order to utilize state
-// const App=()=>{
-//   return(
-//     <div className='tc'>
-//       <h1>MultiSig Gas Tracker</h1>
-//       <SearchBox/>
-//     </div>
-//   );
-// }
 
 export default App;
