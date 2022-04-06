@@ -13,6 +13,9 @@ class App extends Component{
     }
   }
 
+// I think I will use fetch here and have it add the searchfield
+// once it is submitted??
+
 onSearchChange(event){
   console.log(event.target.value);
 }
