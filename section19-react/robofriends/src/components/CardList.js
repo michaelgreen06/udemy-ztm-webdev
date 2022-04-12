@@ -17,7 +17,7 @@ const CardList = ({robots})=>{
           name=robots[i].name
           email=robots[i].email
           //in Andrei's original the prop values i, robots[i].id etc were wrapped in {}
-          //This is just because he sloppy pasted them from jsx context & didn't remove them
+          //This is just because he sloppy pasted them from jsx context & he didn't remove them
           />
         );
       })
