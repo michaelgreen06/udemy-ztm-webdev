@@ -9,7 +9,7 @@ const CardList = (props) => {
         props.robots.map((user, i) => {
           return (
             <Card
-              key={props.robots.i}
+              key={props.robots[i].id}
               id={props.robots[i].id}
               name={props.robots[i].name}
               email={props.robots[i].email}
@@ -23,3 +23,5 @@ const CardList = (props) => {
 }
 
 export default CardList;
+
+// comments so I can get a green square!!
