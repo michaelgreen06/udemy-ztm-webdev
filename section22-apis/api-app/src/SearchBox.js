@@ -7,6 +7,7 @@ const SearchBox = ({searchChange})=>{
       className='tc pa3 ba b--green bg-lightest-blue'
       type='search'
       placeholder='Enter ETH Address'
+      onChange={searchChange}
     />
   </div>
   );
