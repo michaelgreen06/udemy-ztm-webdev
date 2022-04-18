@@ -18,6 +18,7 @@ return(
   fetch(`https://api.etherscan.com/api?module=account&action=tokentx&address=${event.target.value}&startblock=0&endblock=99999999&sort=asc&apikey=S58AX7RGE8H35RT8QXD4RQ2A427RQF7B1M`)
 );
   // this.setState({searchfield: event.target.value});
+  //wondering if I need to do something else besides fetching to get the new page to come up
 }
 
   render(){
