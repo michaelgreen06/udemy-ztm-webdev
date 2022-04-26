@@ -1,28 +1,32 @@
 import React, {Component} from 'react';
 import './App.css';
 import Navigation from './Components/Navigation/Navigation';
-import ParticleShow from './Components/Particles/Particles'
+import Particles from 'react-tsparticles';
 import Logo from './Components/Logo/Logo';
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
 
+
 const particlesOptions={
   particles: {
-    line_linked: {
-      shadow: {
-        enable: true,
-        color: "#3CA9D1",
-        blur: 5
+    number:{
+      value:30,
+      density:{
+        enable:true,
+        value_area:89
       }
     }
-  }
+
+    }
 }
 
 class App extends Component{
   render(){
     return(
       <div className="App">
-      <ParticleShow />
+      <Particles className='particles'
+      params={particlesOptions}
+      / >
        <Navigation />
        <Logo />
        <Rank />
