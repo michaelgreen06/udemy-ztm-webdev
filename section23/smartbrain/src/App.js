@@ -29,7 +29,7 @@ class App extends Component{
     super();
     this.state={
       input:'',
-      imageUrl:''
+      imageUrl:'',
     }
   }
 
@@ -56,17 +56,17 @@ onButtonSubmit=()=>{
   render(){
     return(
       <div className="App">
-      <Particles className='particles'
-      params={particlesOptions}
-      / >
-       <Navigation />
-       <Logo />
-       <Rank />
-       <ImageLinkForm
-       onInputChange={this.onInputChange}
-       onButtonSubmit={this.onButtonSubmit}
-       />
-      <FaceRecognition imageUrl={this.state.imageUrl} />
+        <Particles className='particles'
+        params={particlesOptions}
+        / >
+         <Navigation />
+         <Logo />
+         <Rank />
+         <ImageLinkForm
+         onInputChange={this.onInputChange}
+         onButtonSubmit={this.onButtonSubmit}
+         />
+        <FaceRecognition imageUrl={this.state.imageUrl} />
       </div>
     );
   }
