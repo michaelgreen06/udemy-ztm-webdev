@@ -8,6 +8,8 @@ import FaceRecognition from './Components/FaceRecognition/FaceRecognition';
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
 
+//having trouble w/ preview
+
 const app=new Clarifai.App({
   apiKey:'dbb375c5d2fb40889de03b398b3048a0'
 });
