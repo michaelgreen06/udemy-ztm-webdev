@@ -1,8 +1,6 @@
-const script2 =require ('./script2.js');
+const c =require ('./script2.js');
 
-const a=script2.largeNumber;
+const a=c.largeNumber;
 const b=5;
 
-setTimeout(()=>{
   console.log(a+b);
-},2000)
