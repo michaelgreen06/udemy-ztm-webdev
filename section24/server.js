@@ -2,24 +2,39 @@ const express=require('express');
 
 const app = express();
 
-app.get('/',(req, res)=>{
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+
+app.get('/:id',(req, res)=>{
+  console.log(req.params);
   res.send('getting root');
-});
-
-app.get('/profile',(req, res)=>{
-  res.send('getting profile');
-});
-
-app.post('/profile',(req, res)=>{
-  const user={
-    name:'Sally',
-    hobby:'GUNS'
-  }
-  res.send(user);
 });
 
 app.listen(3000);
 
+
+// 289
+// const express=require('express');
+//
+// const app = express();
+//
+// app.use(express.urlencoded({extended: false}));
+// app.use(express.json());
+//
+// app.get('/',(req, res)=>{
+//   res.send('getting root');
+// });
+//
+// app.get('/profile',(req, res)=>{
+//   res.send('getting profile');
+// });
+//
+// app.post('/profile',(req, res)=>{
+//   console.log(req.body)
+//   res.send("success");
+// });
+//
+// app.listen(3000);
 
 // const express=require('express');
 //
