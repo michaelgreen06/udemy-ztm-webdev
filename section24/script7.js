@@ -10,9 +10,20 @@ fs.readFile('./hello.txt',(err,data)=>{
 const file = fs.readFileSync('./hello.txt');
 console.log('sync',file.toString());
 
-
+//Challenge link -> https://adventofcode.com/2015/day/1
 //https://stackoverflow.com/questions/881085/count-the-number-of-occurrences-of-a-character-in-a-string-in-javascript
 //when using split() w/ the ( separator it provides arrays of ) characthers.
 //I need to count the number of characters in those arrays then return the sum of them
 //I think I can use an if statement to skip arrays that are less than 1
 //https://stackoverflow.com/questions/52802420/how-to-count-a-number-of-character-in-each-element-of-array-in-js
+//can use map or reduce to perform a function on each array element. Not sure if it will do for all arrays or just one
+//So I will try an example to investigate
+
+let inst="((())()()()()()((((())))))"
+const array=inst.split(")")//outputs a bunch of arrays
+array.reduce(funcName).length;
+
+function funcName(total, num){
+  return total + num;
+}
+//^^ this actually worked!!!
