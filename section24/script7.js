@@ -18,6 +18,7 @@ console.log('sync',file.toString());
 //https://stackoverflow.com/questions/52802420/how-to-count-a-number-of-character-in-each-element-of-array-in-js
 //can use map or reduce to perform a function on each array element. Not sure if it will do for all arrays or just one
 //So I will try an example to investigate
+//the below code works!
 
 let inst="((())()()()()()((((())))))"
 const array=inst.split(")")//outputs a bunch of arrays
