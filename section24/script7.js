@@ -28,3 +28,6 @@ function funcName(total, num){
   return total + num;
 }
 //^^ this actually worked!!!
+// it has to be done for the ( & ) characters separately then the difference between the two needs to be found
+// I think I need to use an if statement
+// I think I could use reduce to find answer and have it give me the index number when total = -1
