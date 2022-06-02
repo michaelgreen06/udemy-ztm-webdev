@@ -31,3 +31,11 @@ function funcName(total, num){
 // it has to be done for the ( & ) characters separately then the difference between the two needs to be found
 // I think I need to use an if statement
 // I think I could use reduce to find answer and have it give me the index number when total = -1
+
+if (sum1-sum2===-1) {
+  return something.length
+  // block of code to be executed if the condition is true
+} else {
+  keep looping until sum1-sum2===-1
+  // block of code to be executed if the condition is false
+}
