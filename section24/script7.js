@@ -22,13 +22,20 @@ console.log('sync',file.toString());
 
 let inst="((())()()()()()((((())))))"
 const array=inst.split(")")//outputs a bunch of arrays
-array.reduce(funcName).length;
-
+const length=array.reduce(funcName).length;
 function funcName(total, num){
   return total + num;
 }
+
+const array2=inst.split("(")//outputs a bunch of arrays
+const length2=array2.reduce(funcName2).length;
+function funcName2(total, num){
+  return total + num;
+}
+
+length-length2
+
 //^^ this actually worked!!!
-// it has to be done for the ( & ) characters separately then the difference between the two needs to be found
 // I think I need to use an if statement
 // I think I could use reduce to find answer and have it give me the index number when total = -1
 
