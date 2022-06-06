@@ -38,6 +38,8 @@ length-length2
 //^^ this actually worked!!!
 // I think I need to use an if statement
 // I think I could use reduce to find answer and have it give me the index number when total = -1
+//I think I may use a while or do while loop to solve prob 2! https://www.w3schools.com/js/js_loop_while.asp
+
 
 if (sum1-sum2===-1) {
   return something.length
