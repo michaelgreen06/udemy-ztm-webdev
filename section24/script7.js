@@ -48,3 +48,49 @@ if (sum1-sum2===-1) {
   keep looping until sum1-sum2===-1
   // block of code to be executed if the condition is false
 }
+
+//how this may look w/ a do while loop. or at least this is the condition that needs to be tested
+
+// While sum+array1[i].length-array2[i].length >0
+// Array1[0].length=4 - Array2[0].length=0===4
+// 4+Array1[1].length=0-Array2[1].length=0===4
+// 4+Array1[2].length=0-Array2[2].length=0===4
+// Sum+array1[i].length-arrary2[i].length
+
+
+//this code seems to work but the answer it gives (891) isn't correct according to advent
+//i tried 891,892,893 & 900 as result but all were wrong
+//I think it's not working because the 891 is the array number that causes -1
+//now that needs to be translated into position
+let result = 0;
+let i = -1;
+const array=inst.split(")")//outputs a bunch of arrays
+const array2=inst.split("(")//outputs a bunch of arrays
+
+do {
+  i = i + 1;
+  // result = result + i;
+  result=result + array[i].length-array2[i].length;
+
+} while (result > -1);
+
+console.log(i);
+
+
+
+//this code tests the output of the code above
+//when i<891 the result is -1
+
+let result = 0;
+let i = -1;
+const array=inst.split(")")//outputs a bunch of arrays
+const array2=inst.split("(")//outputs a bunch of arrays
+
+do {
+  //i = i + 1;
+  // result = result + i;
+  result=result + array[0].length-array2[0].length;
+
+} while (i < 891);
+
+console.log(result);
