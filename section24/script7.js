@@ -62,6 +62,7 @@ if (sum1-sum2===-1) {
 //i tried 891,892,893 & 900 as result but all were wrong
 //I think it's not working because the 891 is the array number that causes -1
 //now that needs to be translated into position
+//quick change for green box!
 let result = 0;
 let i = -1;
 const array=inst.split(")")//outputs a bunch of arrays
