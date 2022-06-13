@@ -40,6 +40,7 @@ length-length2
 // I think I could use reduce to find answer and have it give me the index number when total = -1
 //I think I may use a while or do while loop to solve prob 2! https://www.w3schools.com/js/js_loop_while.asp
 //I'm going to investigate the do while loop
+//I think I have to use something different than match!
 
 if (sum1-sum2===-1) {
   return something.length
@@ -62,7 +63,6 @@ if (sum1-sum2===-1) {
 //i tried 891,892,893 & 900 as result but all were wrong
 //I think it's not working because the 891 is the array number that causes -1
 //now that needs to be translated into position
-//quick change for green box!
 let result = 0;
 let i = -1;
 const array=inst.split(")")//outputs a bunch of arrays
@@ -95,3 +95,12 @@ do {
 } while (i < 891);
 
 console.log(result);
+
+
+//New method using .match and regular expression to capture the parenthesis literal
+inst.match(/[)]/g).length //3384
+inst.match(/[(]/g).length //3616
+//3616-3384=232 <--- this is the right answer!!
+//How do I use match to determine when there is 2 more ) than (??
+//Move one space at a time and do the sum of the lengths for each time.
+//^^this is how to solve the prob but not sure how to code 
