@@ -103,4 +103,10 @@ inst.match(/[(]/g).length //3616
 //3616-3384=232 <--- this is the right answer!!
 //How do I use match to determine when there is 2 more ) than (??
 //Move one space at a time and do the sum of the lengths for each time.
-//^^this is how to solve the prob but not sure how to code 
+//^^this is how to solve the prob but not sure how to code
+
+
+//maybe the original split method will actually work?
+//I could calculate the length of all the arrays and would have to add in the number of
+//separator characters that aren't shwoing up in the arrays. This is assuming that 0 length arrays aren't counted
+//I think i'd have to do a loop to figure out the overall length. 
