@@ -109,4 +109,28 @@ inst.match(/[(]/g).length //3616
 //maybe the original split method will actually work?
 //I could calculate the length of all the arrays and would have to add in the number of
 //separator characters that aren't shwoing up in the arrays. This is assuming that 0 length arrays aren't counted
-//I think i'd have to do a loop to figure out the overall length. 
+//I think i'd have to do a loop to figure out the overall length.
+
+
+
+
+//substring takes (start,end) parameters and returns that part of the string
+//substr takes (start,length) parameters
+//I'm using slice!!
+
+
+let i = -1;
+do {
+  i = i + 1;
+  // result = result + i;
+ let segment=inst.slice(0,i)
+ let length1=segment.match(/[(]/g).length
+ let length2=segment.match(/[)]/g).length
+ let result=length1-length2;
+
+} while (result < 10);
+
+console.log(i);
+
+//testing to see why i'm getting cannot read length error
+inst.slice(0,10).match(/[(]/g).length
