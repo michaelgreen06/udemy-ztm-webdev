@@ -134,3 +134,33 @@ console.log(i);
 
 //testing to see why i'm getting cannot read length error
 inst.slice(0,10).match(/[(]/g).length
+
+//going to try a different approach quickly
+//will use bracket notation & a for loop to loop through the string
+//will use an if else statement to keep track of the result based on open or closed parenthesis
+
+inst[i]
+
+let result=0;
+for (let i = 0; result>-1; i++) {
+  if (inst[i]==="("){
+    result=result+1;
+  }
+  else{
+    result=result-1;
+  }
+  console.log(i);
+}
+
+
+//^^^Works!! The trick is I had to add one because of the way position was being counted
+//this code also prints out every iteration of i which is annoying but I still get the right answer!!
+
+
+
+
+
+
+
+
+//
