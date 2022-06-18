@@ -142,21 +142,32 @@ inst.slice(0,10).match(/[(]/g).length
 inst[i]
 
 let result=0;
-for (let i = 0; result>-1; i++) {
+let i=0;
+
+for ( i = 0; result>-1; i++) {
   if (inst[i]==="("){
     result=result+1;
-  }
-  else{
+  }  else{
     result=result-1;
   }
-  console.log(i);
 }
-
+console.log(i);
 
 //^^^Works!! The trick is I had to add one because of the way position was being counted
 //this code also prints out every iteration of i which is annoying but I still get the right answer!!
 
+//code from discord @sneaky
+let result = 0;
+let i = 0
 
+for (i = 0; result > -1; i++) {
+  if (inst[i] === "(") {
+    result = result + 1;
+  } else {
+    result = result - 1;
+  }
+}
+console.log(i);
 
 
 
