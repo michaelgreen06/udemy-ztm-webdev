@@ -4,10 +4,11 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon santa_server.js"
   },
   "keywords": [],
   "author": "",
+  "type":"module",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.16"
