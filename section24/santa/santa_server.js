@@ -7,5 +7,7 @@ app.get('/', (req,res)=>{
 });
 
 //I'm definitely going to make a server today. At least I'll try that is.
+//6/30 - read this article (https://www.iamtimsmith.com/blog/creating-a-basic-server-with-express-js)
+//Was surprised it used require!
 
 app.listen(3000);
