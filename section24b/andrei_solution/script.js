@@ -5,7 +5,15 @@ const fs=require('fs');
 function question1(){
   fs.readFile('./santa.txt', (err,data)=>{
     const directions=data.toString();
-    console.log(directions);
+    const directionsArray=directions.split('');
+    const answer=directionsArray.reduce((acc,currentValue)=>{
+      if (currentValue==='('){
+        return acc+=1
+      }else if (currentValue===')'){
+        return acc-=1
+      }
+    },0)
+    console.log(answer);
   })
 }
 
