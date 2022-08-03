@@ -27,7 +27,8 @@ class Signin extends React.Component{
     })
     .then(response=>response.json())
     .then(data=>{
-      if (data==='success!'){
+      if (user.id){
+          this.props.loadUser(user); //added during 306 but is causing probs because it isnt defined above
           this.props.onRouteChange('home');
       }
     })

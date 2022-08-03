@@ -85,7 +85,18 @@ onButtonSubmit=()=>{
     .predict(
     Clarifai.FACE_DETECT_MODEL,
     this.state.input)
-    .then(response=>this.displayFaceBox(this.calcuateFaceLocation(response)))
+    .then(response=>{
+      if(response){
+        fetch('http://localhost:3000/image',{
+          method:'put',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({
+            id:this.state.user.id
+          })
+        })
+      }
+      this.displayFaceBox(this.calcuateFaceLocation(response))
+    })
     .catch(err=>console.log(err));
 }
 
@@ -109,7 +120,7 @@ onRouteChange=(route)=>{
          {route==='home'
          ? <div>
              <Logo />
-             <Rank />
+             <Rank name={this.state.user.name} entries={this.state.user.entries} /> 
              <ImageLinkForm
              onInputChange={this.onInputChange}
              onButtonSubmit={this.onButtonSubmit}
@@ -118,12 +129,12 @@ onRouteChange=(route)=>{
         </div>
         :(
           route==='signin'
-          ? <Signin onRouteChange={this.onRouteChange} />
+          ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
           : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
         )
         }
       </div>
-    );
+    ); // props to signin & rank component were added during 306 lecture. There may be a div that needs to be closed above. Not sure tho
   }
 }
 
