@@ -16,7 +16,7 @@ class Signin extends React.Component{
     this.setState({signInPassword:event.target.value})
   }
   
-  onSubmitSignIn=()=>{
+  onSubmitSignIn=(user)=>{
     fetch('http://localhost:3000/signin',{
       method:'post',
       headers:{'Content-Type':'application/json'},
@@ -28,7 +28,7 @@ class Signin extends React.Component{
     .then(response=>response.json())
     .then(data=>{
       if (user.id){
-          this.props.loadUser(user); //added during 306 but is causing probs because it isnt defined above
+          this.props.loadUser(user); 
           this.props.onRouteChange('home');
       }
     })
