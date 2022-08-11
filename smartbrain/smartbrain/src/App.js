@@ -30,7 +30,7 @@ const particlesOptions={
 
 class App extends Component{
   constructor(){
-    super();
+    super()
     this.state={
       input:'',
       imageUrl:'',
@@ -94,7 +94,11 @@ onButtonSubmit=()=>{
             id:this.state.user.id
           })
         })
-      }
+          .then(response=>response.json())
+          .then(count=>{
+            this.setState(Object.assign(this.state.user, {entries:count}))
+          })
+      } 
       this.displayFaceBox(this.calcuateFaceLocation(response))
     })
     .catch(err=>console.log(err));
