@@ -9,7 +9,7 @@ const database={
   users:[
     {
       id:'123',
-      name:'mike',
+      name:'Michael',
       password:'cookies',
       email:'mike@gmail.com',
       entries:0,
