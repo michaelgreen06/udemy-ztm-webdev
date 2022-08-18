@@ -78,10 +78,7 @@ class App extends Component{
   onInputChange=(event)=>{
     this.setState({input:event.target.value});
   }
-//I'm installing postgress
-//updating my DBs
-//inserted rows into tables
-//modifyind data in tables
+//created login table 
 onButtonSubmit=()=>{
   this.setState({imageUrl:this.state.input});
   app.models
