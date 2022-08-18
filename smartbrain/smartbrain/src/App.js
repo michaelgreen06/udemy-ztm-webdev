@@ -81,7 +81,7 @@ class App extends Component{
 //I'm installing postgress
 //updating my DBs
 //inserted rows into tables
-
+//modifyind data in tables
 onButtonSubmit=()=>{
   this.setState({imageUrl:this.state.input});
   app.models
