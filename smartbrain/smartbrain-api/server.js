@@ -5,6 +5,8 @@ const cors=require('cors');
 
 app.use(express.json());
 
+//getting ready to set up an SQL DB!!
+
 const database={
   users:[
     {
