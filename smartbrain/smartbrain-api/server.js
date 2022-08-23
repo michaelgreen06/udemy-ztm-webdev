@@ -2,10 +2,23 @@ const express=require('express');
 const app = express();
 const bcrypt=require('bcrypt-nodejs');
 const cors=require('cors');
+const knex=require('knex')
+
+const postgres=knex({
+  client: 'pg',
+  connection: {
+    host : '127.0.0.1',
+    port : 3306,
+    user : 'postgres',
+    password : 'password',
+    database : 'smartbrain'
+  }
+});
+
+console.log(postgres.select('*').from('users'));
 
 app.use(express.json());
 
-//getting ready to set up an SQL DB!!
 
 const database={
   users:[
