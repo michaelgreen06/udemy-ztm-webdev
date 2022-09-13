@@ -3,7 +3,6 @@ import './App.css';
 import Navigation from './Components/Navigation/Navigation';
 import Signin from './Components/Signin/Signin';
 import Particles from 'react-tsparticles';
-import Clarifai from 'clarifai';
 import Logo from './Components/Logo/Logo';
 import Register from './Components/Register/Register';
 import FaceRecognition from './Components/FaceRecognition/FaceRecognition';
@@ -12,9 +11,7 @@ import Rank from './Components/Rank/Rank';
 
 //having trouble w/ preview
 
-const app=new Clarifai.App({
-  apiKey:'dbb375c5d2fb40889de03b398b3048a0'
-});
+
 
 const particlesOptions={
   particles: {
@@ -83,10 +80,13 @@ class App extends Component{
 //created login table 
 onButtonSubmit=()=>{
   this.setState({imageUrl:this.state.input});
-  app.models
-    .predict(
-    Clarifai.FACE_DETECT_MODEL,
-    this.state.input)
+  fetch('http://localhost:3000/imageurl',{
+    method:'post',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      input:this.state.input
+    })
+  })
     .then(response=>{
       if(response){
         fetch('http://localhost:3000/image',{
