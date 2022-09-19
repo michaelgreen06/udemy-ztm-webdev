@@ -1,10 +1,10 @@
-const app=require('http').createServer((req,res)=>res.send('oh hi there!'));
+const app=require('http')
+  .createServer((req,res)=>res.send('oh hi there!'));
 
-const PORT=process.env.PORT;
-const fart='hi fart';
+const Port=process.env.Port
 
-app.listen(PORT,()=>{
-  console.log('server is listening on ${fart}');
+app.listen(Port,()=>{
+  console.log('server is listening on ${Port}');
 });
 
-console.log(PORT);
+console.log(Port);
