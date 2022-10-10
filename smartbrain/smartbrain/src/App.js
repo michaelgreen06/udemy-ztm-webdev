@@ -10,6 +10,7 @@ import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
 
 //having trouble w/ preview
+//seekign green dot!
 
 
 
