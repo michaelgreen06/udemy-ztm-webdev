@@ -7,7 +7,7 @@ const c = 789;
 a = "test2";
 
 // Destructuring
-var person = {
+const person = {
   firstName: "John",
   lastName: "Doe",
   age: 50,
@@ -19,10 +19,18 @@ var lastName = person.lastName;
 var age = person.age;
 var eyeColor = person.eyeColor;
 
+var { firstName, lastName, age, eyeColor } = person;
+
 // Object properties
 var a = "test";
 var b = true;
 var c = 789;
+
+const obj = {
+  [a]: "test",
+  [b]: true,
+  [c]: 789,
+};
 
 var okObj = {
   a: a,
