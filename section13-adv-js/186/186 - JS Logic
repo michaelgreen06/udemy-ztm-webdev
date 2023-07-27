@@ -1,0 +1,36 @@
+//186 optional exercise - Javascript Logic
+// how to think like a programmer - https://www.freecodecamp.org/news/how-to-think-like-a-programmer-lessons-in-problem-solving-d1d8bf1de7d2/
+//1 fully understand the problem
+//2 make a plan to solve the problem
+//3 divide into sub-problems
+
+//#1 Clean the room function: given an input of [1,2,4,591,392,391,2,5,10,2,1,1,1,20,20],
+//make a function that organizes these into individual array that is ordered.
+//For example answer(ArrayFromAbove) should return: [[1,1,1,1],[2,2,2], 4,5,10,[20,20], 391, 392,591]
+
+//1) understand
+//all 1's should be an array. all 2's should be in an array. the arrays should show up from smallest
+//to largest. If there is only 1 of a number it shows up w/o an array
+
+//2 Plan
+//Start w/ the smallest number in the array. Check if that number appears again. If it appears again,
+//put each instance of that number into a sub array. if the number doesn't appear again put it into the global array
+//after the previous smaller number. Do this until all numbers in array have been processed
+//how to check if a number appears multiple times: compare arr[0] to arr[1] all the way to arr[arr.length-1]
+//if arr[0]!=arr[1] move on and compare arr[0] to arr[2] do this until all elements have been compared
+//if arr[0] === arr[n] make a new array, maybe using map, w/ the numbers and continue inspecting the array elements
+//before finishing making the new array.
+
+//divide - break the problems into sub problems
+//sub problem #1 ID duplicate numbers:
+const messyRoom = [1, 2, 4, 591, 392, 391, 2, 5, 10, 2, 1, 1, 1, 20, 20];
+
+function compareElements(arr) {
+  for (let index = 0; index < array.length; index++) {
+    if (arr[0] === arr[index + 1]) {
+      console.log("match!");
+    } else {
+      console.log("no match");
+    }
+  }
+}
