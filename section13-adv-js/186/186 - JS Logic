@@ -26,11 +26,103 @@
 const messyRoom = [1, 2, 4, 591, 392, 391, 2, 5, 10, 2, 1, 1, 1, 20, 20];
 
 function compareElements(arr) {
-  for (let index = 0; index < array.length; index++) {
-    if (arr[0] === arr[index + 1]) {
-      console.log("match!");
+  for (let index = 0; index < arr.length; index++) {
+    if (arr[0] === arr[index]) {
+      console.log(index, "match!");
     } else {
-      console.log("no match");
+      console.log(index, "no match");
     }
   }
 }
+//this is actually a good start! the next step would be to put the matches into an array. I probably do this w/ map
+// or is the next step to figure out how to do this for each element? I'm trying for each element.
+//I want to figure out how to get a variable for arr[0] so that it compares all elements. It actually could be
+//good to create a new array that doesn't have the duplicate numbers anymore. EG I found all the 1 duplicates
+//now make a new array that doesn't contain those 1s since there is no need to check them again
+//my code above works for one element. I need to get it to work for each element. Maybe it's fine if I keep it locked
+//on index zero if I'm constantly checking a new array! New subprob how to create a new array that contains the elements
+//that haven't been inspected and didn't match. Maybe i keep the original array, change it to a let and pop out elements
+//that have already been inspected? maybe I should actually use filter?!
+
+//possible array methods to use:
+//filter
+//slice
+//sort
+//splice - adds and/or removes array elements. at specific positions
+//at() - I could use this in combo w/ returning the index Value where element values match
+
+//what if I use filter()?! Filter returns a new array. I could have it filter based on arr[i] or arr[0]
+//I am still trying to solve the same sub problem of Identifying numbers that have a duplicate occurance
+//I am working on this because I found it when trying to figure out how to make a new array that doesn't contain
+//the original numbers from meessyRoom that were matched.
+//what does it look like w/ filter function? the filter function returns all of the numbers that are the same as the number being
+//checked. It still would be nice if the original array could be modified.
+const messyRoom1 = [1, 2, 4, 591, 392, 391, 2, 5, 10, 2, 1, 1, 1, 20, 20];
+
+const newArray = messyRoom.filter(filterFunc);
+
+function filterFunc(num) {
+  for (let index = 0; index < array.length; index++) {
+    if (x) {
+    }
+  }
+}
+//I am feeling discouraged like I can't make any progress. Maybe this is the time to tear everything down and start again?!
+//I will do that now:
+
+//1 understand
+//the problem requires to put all numbers from the messyRoom array into order. If there are multiple occurances of a number
+//then they should all be grouped in their own array.
+
+//2 plan
+
+//option 1
+//first order the array.
+//second - group all repeating numbers into their own arrays. - might not work because most array methods don't modify the
+//original array. It could be OK if the grouping part returned a new array that had repeating numbers put into their own
+//arrays. That array would then be the starting point for the next array that groups the next set of repeating numbers
+
+//option 2
+//first - ID all repeating numbers
+//second - Make new arrays for all repeating numbers
+//third - put all arrays of repeating numbers into new array
+//fouth - order arrays in ascending order
+
+//3 divide
+
+//sort the array
+const messyRoom2 = [1, 2, 4, 591, 392, 391, 2, 5, 10, 2, 1, 1, 1, 20, 20];
+//this sort method returns messyRoom2 w/ numbers sorted ascendingly
+messyRoom2.sort(function (a, b) {
+  return a - b;
+});
+
+//group reocurring numbers into arrays in order
+//plan - run a for loop on the ordered array that makes a new array for each set of recurring numbers
+//use map to create a new array w/in the array
+//ID all the places where the 1st number repeats
+function compareElements(arr) {
+  for (let index = 0; index < arr.length; index++) {
+    if (arr[0] === arr[index]) {
+      console.log(index, "match!");
+    } else {
+      console.log(index, "no match");
+    }
+  }
+}
+//put all the 1s into their own array
+const cleanRoom = messyRoom2.map(mapFunc);
+function mapFunc(arr, num) {
+  if (arr[1] === num) {
+    return "hello";
+  }
+}
+
+//cheating w/ chatGPT
+const cleanRoom2 = messyRoom2.map((num, index, arr) => {
+  if (arr[index + 1] === num) {
+    return [num, arr[index + 1]];
+  } else {
+    return num;
+  }
+});
