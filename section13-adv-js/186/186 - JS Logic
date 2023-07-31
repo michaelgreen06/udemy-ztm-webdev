@@ -72,7 +72,8 @@ function filterFunc(num) {
 
 //1 understand
 //the problem requires to put all numbers from the messyRoom array into order. If there are multiple occurances of a number
-//then they should all be grouped in their own array.
+//then they should all be grouped in their own array. The end result is the array has nested arrays of duplicate numbers
+//and they appear in ascending order
 
 //2 plan
 
@@ -126,3 +127,67 @@ const cleanRoom2 = messyRoom2.map((num, index, arr) => {
     return num;
   }
 });
+
+//Prob: make a new array for the 1st set of repeating numbers:
+//plan: compare element[0] to every other element. if elemeent[0] = element[n] add element[n] to the array that contains elemeent[0]
+//this might be too big of a problem for me right now. How do I create a new array for each element
+
+//prob: make a new array for each element in the array.
+//plan: run a for lop
+
+function newArray(arr) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    result.push([arr[i]]);
+  }
+  return result;
+}
+
+//I now know how to create arrays w/in an array! 🥳
+//new prob: create an array of all the 1s in an array
+//plan: loop through the sorted array w/ a conditional that makes a new array for the 1s.
+//the conditional tests if arr[0]===arr[i] if it is then it pushes that eleement to the new array
+
+const cleanerRoom = [1, 1, 1, 1, 2, 2, 2, 4, 5, 10, 20, 20, 391, 392, 591];
+
+function newArray(arr) {
+  const result = [];
+  const result2 = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[0] === arr[i]) {
+      result2.push(arr[i]);
+    } else {
+      result.push(arr[i]);
+    }
+  }
+  console.log(result);
+  console.log(result2);
+}
+//the issue is that each time the numbers are equal I'm only getting an array w/ 1# but I want the array to have
+//all the duplicate numbers.
+
+//I achieved my goal of getting all the 1s in 1 array! I could likely get them in the same array by pushing result
+//onto result2. Now my next sub problem is how to get the 2s into their own array. I think there is some other
+//test that I need my conditional to perform. Also this isn't scaleable because if messyRoom changes I don't know
+//how many empty arrays I would need to initialize. It's ok though because right now I'm just working on sub problems
+//what is the next sub problem? It's not getting the 2s in their own arrays. how would I test if there are duplicate
+//numbers w/o adding the wrong number of elements to the new array?
+//I think I need to use a filter! if arr[i]===arr[i+1] then return an array that contains all elements that match arr[i]
+
+//trying w/ filter
+const cleanerRoom = [1, 1, 1, 1, 2, 2, 2, 4, 5, 10, 20, 20, 391, 392, 591];
+
+function newArray(arr) {
+  const result = [];
+  const result2 = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i + 1]) {
+      result2.push(arr.filter((num) => num === arr[i]));
+    } else {
+      result.push(arr[i]);
+    }
+  }
+  console.log(result);
+  console.log(result2);
+}
+//^^getting closer!!
