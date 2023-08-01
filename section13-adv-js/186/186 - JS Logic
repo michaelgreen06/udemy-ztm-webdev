@@ -191,3 +191,35 @@ function newArray(arr) {
   console.log(result2);
 }
 //^^getting closer!!
+
+//seems like filter could work. RN the issue is that I keep getting multiple arrays of repeating #s
+//I only want one arry of repeating numbers. The other issue is that my conditional doesn't work for the last
+//# of the set of repeating numbers. Maybe I need a new conditinal. Maybe the subproblem is to create a conditional
+//that is only true once if there are repeating numbers? once a repeating number has been Identified it would be
+//nice if we could move on to the next number to test. RN we are doing this by using . If result2 contains an array
+//that contains arr[i] skip pushing to result2. How do I test whether result2 contains an array w/ numbers
+//that match arr[i]? I use .includes()!
+
+//Same as above only now there should only be one array of each duplicate number in result2
+
+const cleanerRoom = [1, 1, 1, 1, 2, 2, 2, 4, 5, 10, 20, 20, 391, 392, 591];
+
+function newArray(arr) {
+  const result = [];
+  const result2 = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i + 1]) {
+      if (result2.includes(arr[i])) {
+        console.log("already in result2");
+      } else {
+        result2.push(arr.filter((num) => num === arr[i]));
+      }
+    } else {
+      if (!result2.includes(arr[i])) {
+        result.push(arr[i]);
+      }
+    }
+  }
+  console.log(result);
+  console.log(result2);
+}
