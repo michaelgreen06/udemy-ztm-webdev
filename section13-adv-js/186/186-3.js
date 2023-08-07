@@ -169,3 +169,42 @@ function hex2Dec(text) {
   const b = decArray[4] * 1 + decArray[5] * 16;
   alert(`rgb(${r}, ${g}, ${b})`);
 }
+
+//The above dec to hex function works and will even accpet lowercase letters in the input. Now I need to make
+//the function that takes an rgb input and returns the hex string.
+
+function dec2Hex(input) {
+  return input.toString(16);
+}
+//^^^this will work for digits up to 255 and we need to make a feature that returns an error when the user enters
+//a value greater than 255. I also need to figure out how to format the input. I would expect the input to be separated by
+//commas. My input will be formatted as rgb(rrr,ggg,bbb). so I will need to figure out how to separate each component out
+//to be fed into the dec2Hex function. If the input is accepted as an array it could already be separated. The issue is that
+//the dec2Hex function needs to be run on each component individually. So dec2Hex runs for rrr then stores that value as the
+//R variable. then it runs for ggg then stores that value for the G variable etc. How do I make it do this?
+//1) - understnad the problem.
+//something needs to take 3 distinct inputs and convert them into their hexadecimal equivalents then return them all & add
+//a # to the beginning of that string.
+//2) - plan
+//The input will be rgb(rrr,ggg,bbb) then each of the components will get fed to the dec2Hex function which will add up
+//each output and then add a # to it and will alert that value
+//3) - divide
+//the smallest simplest task at this point is to take an input that is separated by commas and turn it into an array?
+//according to chatGPT I can use the split() method to split the input based on the comma.
+
+//a) split the input into an array
+
+function inputSplit(input) {
+  return input.split(",");
+}
+
+const arrayValues = input.split(",").map(Number);
+
+function inputSplit(input) {
+  return input.split(",").map(Number);
+}
+
+function inputArray(...input) {
+  let newArray = [input];
+  return newArray;
+}
