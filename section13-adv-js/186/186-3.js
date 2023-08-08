@@ -170,7 +170,7 @@ function hex2Dec(text) {
   alert(`rgb(${r}, ${g}, ${b})`);
 }
 
-//The above dec to hex function works and will even accpet lowercase letters in the input. Now I need to make
+//The above hex2dec function works and will even accpet lowercase letters in the input. Now I need to make
 //the function that takes an rgb input and returns the hex string.
 
 function dec2Hex(input) {
@@ -194,17 +194,137 @@ function dec2Hex(input) {
 
 //a) split the input into an array
 
-function inputSplit(input) {
-  return input.split(",");
+// function inputSplit(input) {
+//   return input.split(",");
+// }
+
+// const arrayValues = input.split(",").map(Number);
+
+// function inputSplit(input) {
+//   return input.split(",").map(Number);
+// }
+
+function inputArray(...input) {
+  let newArray = [input];
+  return newArray;
 }
 
-const arrayValues = input.split(",").map(Number);
+//Yesterday I determined how to get the inputs from function parameters into an array using something syntax.
+//I think I just need to use the spread operator in the input parameter of the function. Yes! the above function
+//inputArray does what I need. Now I know how to get the inputs into an array what is next??? I have the dec to hex function
+//created already. Now I need to make it accept the elements in the input array.
 
-function inputSplit(input) {
-  return input.split(",").map(Number);
+// current progress:
+
+function dec2Hex(input) {
+  return input.toString(16);
 }
 
 function inputArray(...input) {
   let newArray = [input];
   return newArray;
+}
+
+//have dec2Hex loop through inputArray
+
+function convert(...input) {
+  let result = [];
+  for (i = 0; i < input.length; i++) {
+    result.push(input[i].toString(16));
+  }
+  const result2 = result.join("");
+  return "#" + result2;
+}
+//When I was implementing the inputArray functionality I actually didn't need to have a newArray because ...input
+//gets formated as an array. I can't push to an empty string but can push to an empty array. I could push to the
+//array and then turn that into a string but I don't know if that's the best method.
+
+//^^^ convert works!
+
+//now I need to combine the above 2 functions w/ a conditional so that when a user inputs data it will detect which
+//type of color is input and run the correct function. I may want to add additional logic that handles formatting of the
+//input. EG if someone puts in #23fa3b it should work. I also need to be able to handle someone inputting rgb different ways
+//How much effort do I want to put into this? I will make it a step above minimal but it's not going to be perfect at all.
+//what cases do I want to handle? hex w/ & w/0 a #. rgb w/ & w/o commas or rgb w/ & w/o rgb? I'm not doing any rgb formatting
+
+//function to handle hex input w/ #. if input contains # drop the #. Needs to detect if input starts w/ # I bet regexp
+//would be best for this. I wonder if I can do it w/o reg exp? the logic needs to check if input starts w/ #. I can use
+//the built in startsWith() string method to check if it starts w/ #. how do I drop # if the string starts w/ #?
+
+function replace(input) {
+  if (input.startsWith("#")) {
+    return input.replace("#", "");
+  } else {
+    return input;
+  }
+}
+
+//^^^ Works! This was the only thing I wanted to add. I will make an html page for this.
+
+//final functions:
+//RGB to Hex:
+
+function dec2Hex(...input) {
+  let result = [];
+  for (i = 0; i < input.length; i++) {
+    result.push(input[i].toString(16));
+  }
+  const result2 = result.join("");
+  return "#" + result2;
+}
+
+//Hex to Dec:
+
+function conversion(input) {
+  if (typeof input === "string") {
+    return input.toUpperCase();
+  } else {
+    return input;
+  }
+}
+function valueRetreive(key) {
+  const obj = {
+    0: 0,
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    A: 10,
+    B: 11,
+    C: 12,
+    D: 13,
+    E: 14,
+    F: 15,
+  };
+  if (obj.hasOwnProperty(key)) {
+    return obj[key];
+  } else {
+    console.log(key, " is not a valid hex digit");
+  }
+}
+
+function hex2Dec(text) {
+  let input;
+  if (text.startsWith("#")) {
+    input = text.replace("#", "");
+  } else {
+    input = text;
+  }
+  const inputArray = [];
+  for (let i = 0; i < input.length; i++) {
+    inputArray.push(conversion(input[i]));
+  }
+  const decArray = [];
+  for (let j = 0; j < inputArray.length; j++) {
+    decArray.push(valueRetreive(inputArray[j]));
+  }
+  const r = decArray[0] * 1 + decArray[1] * 16;
+  const g = decArray[2] * 1 + decArray[3] * 16;
+  const b = decArray[4] * 1 + decArray[5] * 16;
+  return `rgb(${r}, ${g}, ${b})`;
 }
