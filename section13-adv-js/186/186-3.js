@@ -90,7 +90,7 @@ function stringConvert(text) {
   return inputArray;
 }
 
-//this above equation breaks an input into its constituent pieces. However, it doesn't differentiate between character types
+//this above function breaks an input into its constituent pieces. However, it doesn't differentiate between character types
 //jk. I actually think it returns things as strings. this issue w/ this approach of having it as a globla variable & using push
 //is that it's not getting reset after each time it is run. looks like moving inputArray to function scope solves the problem.
 //so now the function does what I need it to. what can I do w/ this new array? How do I use the new array in the multiValues
@@ -273,7 +273,7 @@ function dec2Hex(...input) {
   return "#" + result2;
 }
 
-//Hex to Dec:
+//Hex to RGB:
 
 function conversion(input) {
   if (typeof input === "string") {
@@ -328,3 +328,90 @@ function hex2Dec(text) {
   const b = decArray[4] * 1 + decArray[5] * 16;
   return `rgb(${r}, ${g}, ${b})`;
 }
+
+//I left off w/ hex2Dec working? Yes! It now removes the # if it is entered. The function doesn't auto-detect and convert
+//based on input format yet. I will make a conditional that causes hex2Dec to run if 6 characters are input and dec2Hex
+//to run if 3 commas are present. Else it will alert "Invalid Input Format. Please enter #xxxxxx or xxx,x,x"
+//dec2Hex is input w/ 3 commas no (). I am not worrying about it being formatted for ().
+
+//autodetect conditional: The problem is to get the proper function to run based on the input format. Maybe I could
+//do if "." exisits then run dec2Hex. I want there to be 3 , b4 running dec2Hex. includes() might work
+
+//inlcudes test function (this method only works w/ strings)
+function testIncludes(text) {
+  if (text.includes(",")) {
+    return "check";
+  } else {
+    return "no go";
+  }
+}
+//this doesn't universally work w/ the current setup because it's a string method.
+
+//I think I have a problem w/ how these are formatted because input my be a string or it may be numbers
+//needing to enter strings for one function and not enter strings for the other function is bad design and I can do
+//better. maybe the solution is to have all input as string by default? hex2RGB is def designed to take strings as an input
+//which I am totally fine w/. The question is: can I format it so no matter the way something is input it is taken as a string?
+//Surely that is possible. If input includes "" then return input. if input doesn't include "" then add ""
+//js has a built in String method that converts any input into a string. I imagine type coercion still works w/ the new string
+
+//simple function to convert an input to a string
+function toString(input) {
+  return String(input);
+}
+
+//includes test w/ toString functionality
+function testIncludes(input) {
+  let text = String(input);
+  console.log(text);
+  if (text.includes(",")) {
+    return "check";
+  } else {
+    return "no go";
+  }
+}
+//looks like etnering a comma messes things up for this function I will find out why that is the case.
+//commas are used for multiple variable declarations and this is causing a syntax error. so how do I allow somone to
+//enter numbers separated by commas then convert it into a string? I know it's possible because I do it in the w3 color
+//picker. I want to be able to put in color values w/o needing to put in quotes. write a function that can receive input
+//from a user and then turn it into a string. here is an example of an expected input from the user: 123, 3, 23
+//the question is: am I designing this function to work w/ an HTML elemenet or am I designing it to work w/ the user
+//passing in inputs? I want to make it as a simple page so I'll go the HTML element approach. I think if this were
+//receiving input directly from a user then they'd be expected to enter things w/ the correct type. I am going to make
+//a simple html page and am not going to try to figure out how this works if things are input directly
+//all HTML input values are strings and this is how I am going to get the input from users. Therefore I should expect
+//all input to be of string type. I need to convert the dec2hex function to work w/ a string. I think I spent sometime
+//trying to figure out how to make it work by directly taking numbers previously.
+
+//to get dec2Hex to work I need to modify it to directly accept a string input then convert it into a number.
+//currently I have:
+function dec2Hex(...input) {
+  let result = [];
+  for (i = 0; i < input.length; i++) {
+    result.push(input[i].toString(16));
+  }
+  const result2 = result.join("");
+  return "#" + result2;
+}
+//i think I need to eliminate the rest parameter because it turns number inputs into an array and I have string inputs
+//how do I turn a string into a number? I will use the inbuilt Number() function
+
+function numberizer(string) {
+  return Number(string);
+}
+//^^^This only works if there is just one string to convert into a string. how do we handle the case when there are commas?
+//we could do some kind of split at the commas? Yes! This is what chatGPT recommended. Good job MG! the split method will
+//split the input into multiple individual strings.
+
+function rgb2Hex(input) {
+  let result = [];
+  let input2 = input.split(",");
+  for (i = 0; i < input2.length; i++) {
+    result.push(Number(input2[i]).toString(16));
+  }
+  const result2 = result.join("");
+  return "#" + result2;
+}
+
+// this returns an array of strings. I think I have to loop through the strings & apply Number() to turn them into
+//numbers so I can then run toString(16).
+//rgb2Hex works now w/ string inputs! 🥳
