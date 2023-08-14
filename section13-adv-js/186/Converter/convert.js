@@ -398,7 +398,7 @@ function dec2Hex(...input) {
 function numberizer(string) {
   return Number(string);
 }
-//^^^This only works if there is just one string to convert into a string. how do we handle the case when there are commas?
+//^^^This only works if there is just one string to convert into a number. how do we handle the case when there are commas?
 //we could do some kind of split at the commas? Yes! This is what chatGPT recommended. Good job MG! the split method will
 //split the input into multiple individual strings.
 
@@ -415,3 +415,75 @@ function rgb2Hex(input) {
 // this returns an array of strings. I think I have to loop through the strings & apply Number() to turn them into
 //numbers so I can then run toString(16).
 //rgb2Hex works now w/ string inputs! 🥳
+//Not exactly sure where I left off on Weds. I remember learning that html inputs return strings. The above function
+//works w/ strings which means it will work w/ HTML input elements. I believe my hex to RGB also works w/ strings
+//but I will verify quickly. Yes! Both functions work w/ strings. Now I need to setup an HTML file that allows a user
+//to input data then hit the convert button and the functions will run. I need to make a function that tests the input
+//& runs the proper function based on what the input is.
+
+//1) Understand - determine if there is a comma present in the input. If there is then run rgb2Hex, else run hex2RGB
+//2) Plan - I will test for a comma then run RGB2Hex otherwise will run hex2RGB
+
+function conversion(input) {
+  if (typeof input === "string") {
+    return input.toUpperCase();
+  } else {
+    return input;
+  }
+}
+function valueRetreive(key) {
+  const obj = {
+    0: 0,
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    A: 10,
+    B: 11,
+    C: 12,
+    D: 13,
+    E: 14,
+    F: 15,
+  };
+  if (obj.hasOwnProperty(key)) {
+    return obj[key];
+  } else {
+    console.log(key, " is not a valid hex digit");
+  }
+}
+
+function testAndConvert(text) {
+  if (text.includes(",")) {
+    let result = [];
+    let input2 = text.split(",");
+    for (i = 0; i < input2.length; i++) {
+      result.push(Number(input2[i]).toString(16));
+    }
+    const result2 = result.join("");
+    return "#" + result2;
+  } else {
+    let input;
+    if (text.startsWith("#")) {
+      input = text.replace("#", "");
+    } else {
+      input = text;
+    }
+    const inputArray = [];
+    for (let i = 0; i < input.length; i++) {
+      inputArray.push(conversion(input[i]));
+    }
+    const decArray = [];
+    for (let j = 0; j < inputArray.length; j++) {
+      decArray.push(valueRetreive(inputArray[j]));
+    }
+    const r = decArray[1] * 1 + decArray[0] * 16;
+    const g = decArray[3] * 1 + decArray[2] * 16;
+    const b = decArray[5] * 1 + decArray[4] * 16;
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+}
