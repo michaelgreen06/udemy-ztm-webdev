@@ -1,10 +1,8 @@
 document.getElementById("convert").onclick = function () {
-  sanityCheck();
+  const text = document.getElementById("input").value;
+  const result = testAndConvert(text);
+  document.getElementById("result").innerHTML = result;
 };
-const text = document.getElementById("input");
-function sanityCheck() {
-  console.log(document.getElementById("input"));
-}
 
 function conversion(input) {
   if (typeof input === "string") {
@@ -44,7 +42,12 @@ function testAndConvert(text) {
     let result = [];
     let input2 = text.split(",");
     for (i = 0; i < input2.length; i++) {
-      result.push(Number(input2[i]).toString(16));
+      const hexValue = Number(input2[i]).toString(16);
+      if (hexValue.length === 1) {
+        result.push(0 + hexValue);
+      } else {
+        result.push(hexValue);
+      }
     }
     const result2 = result.join("");
     return "#" + result2;

@@ -487,3 +487,9 @@ function testAndConvert(text) {
     return `rgb(${r}, ${g}, ${b})`;
   }
 }
+
+//I think I need to use the DOM to make this work. Not sure if I do this in the html or in the js file.
+//what do I want to happen? The user will input values into the converter page then will hit the convert button
+//which will cause a p tag to display the resulting values. It looks like I can use document.object in js, but how does
+//this connect w/ the HTML?
+//I need to use the .value property for id=convert
