@@ -493,3 +493,4 @@ function testAndConvert(text) {
 //which will cause a p tag to display the resulting values. It looks like I can use document.object in js, but how does
 //this connect w/ the HTML?
 //I need to use the .value property for id=convert
+//updating notes so I get my green square! I did learn today but not much coding.
