@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/udemy-ztm-webdev/section19-react/rd2/robofriends2/static/css/main.ae5607bb.css",
+    "main.js": "/udemy-ztm-webdev/section19-react/rd2/robofriends2/static/js/main.b69d41e1.js",
+    "static/js/787.f1d5b7aa.chunk.js": "/udemy-ztm-webdev/section19-react/rd2/robofriends2/static/js/787.f1d5b7aa.chunk.js",
+    "index.html": "/udemy-ztm-webdev/section19-react/rd2/robofriends2/index.html",
+    "main.ae5607bb.css.map": "/udemy-ztm-webdev/section19-react/rd2/robofriends2/static/css/main.ae5607bb.css.map",
+    "main.b69d41e1.js.map": "/udemy-ztm-webdev/section19-react/rd2/robofriends2/static/js/main.b69d41e1.js.map",
+    "787.f1d5b7aa.chunk.js.map": "/udemy-ztm-webdev/section19-react/rd2/robofriends2/static/js/787.f1d5b7aa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae5607bb.css",
+    "static/js/main.b69d41e1.js"
+  ]
+}
