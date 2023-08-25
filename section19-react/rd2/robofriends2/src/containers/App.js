@@ -4,6 +4,8 @@ import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
 import ErrorBoundary from "../components/ErrorBoundary";
 
+//quick update comment
+
 class App extends React.Component {
   constructor() {
     super();
