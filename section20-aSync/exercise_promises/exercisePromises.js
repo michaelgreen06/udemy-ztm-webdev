@@ -26,10 +26,10 @@ const urls = [
   "http://swapi.dev/api/people/4",
 ];
 
-Promise.all(urls.map((url) => fetch(url).then((response) => response.json)));
-
-//I need to figure out how to do this fetch w/ an array of urls. I know map iterates over an array and makes a new array
-//I will use map to fetch the data from each URL
+Promise.all(urls.map((url) => fetch(url).then((response) => response.json())))
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error, "oops! Something went wrong"));
 
 // #6) Change one of your urls above to make it incorrect and fail the promise
 // does your catch block handle it?
+//Yes!
