@@ -45,20 +45,19 @@ async function fetchData1() {
   console.log(data2);
 }
 
-//this is function that I want to run when I want to get all resolved promises at the same time
-//1)understand - I'm not sure I understand what is happening here. I think I am trying to create a way
-//to wait for all promises to be resolved so I can log everything to the console at the same time
-//I am fetching data from 3 different APIs and need to wait for each to be resolved. I want to do the first
-//version the stupid simple way w/o array destructurring. Also, an easier way to start would be to do it
-//for one url instead of all 3.
-//The async function works for one of the URLs in the array. How can I get it to work for all elements in the array?
-//I need some type of loop. I could use a for loop. Andrei would say I should use map. How would it work if I use map?
-//map would make a new array of arrays that each contain objects.
-//I obviously wouldn't write the function this way but I'm just trying to do small chunks at a time so I can understand
-//what is happening.
-//promise.all receives an array of promises and returns an array of fulfilled promises
-//2)plan
-//3)divide
+//destructuring the above function
+async function fetchData1() {
+  try {
+    const [users, posts, albums] = await Promise.all(
+      urlss.map((url) => fetch(url).then((resp) => resp.json()))
+    );
+    console.log(users);
+    console.log(posts);
+    console.log(albums);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 // #2) ADVANCED: Update the function below from the video to also have
 // async await for this line: fetch(url).then(resp => resp.json())
@@ -71,15 +70,25 @@ const urls = [
 ];
 
 const getData = async function () {
-  const [users, posts, albums] = await Promise.all(
-    urls.map((url) => fetch(url).then((resp) => resp.json()))
-  );
-  console.log("users", users);
-  console.log("posta", posts);
-  console.log("albums", albums);
+  try {
+    const [users, posts, albums] = await Promise.all(
+      urls.map(async (url) => {
+        const resp = await fetch(url);
+        const data = await resp.json();
+        return data;
+      })
+    );
+    console.log("users", users);
+    console.log("posts", posts);
+    console.log("albums", albums);
+  } catch (error) {
+    console.error("ooooops", error);
+  }
 };
 
-// #3)Add a try catch block to the #2 solution in order to catch any errors. // Now, use the given array containing an invalid url, so you console.log  //your error with 'oooooops'.
+// #3)Add a try catch block to the #2 solution in order to catch any errors.
+// Now, use the given array containing an invalid url, so you console.log
+//your error with 'oooooops'.
 const urls1 = [
   "https://jsonplaceholder.typicode.com/users",
   "https://jsonplaceholdeTYPO.typicode.com/posts",
