@@ -13,9 +13,48 @@ const Card = function ({ id, joke }) {
 export default Card;
 
 //Yay! I got 10 cards to display roughly as I wished. Now I need to figure out how to fetch data from the API
-//I don't need to wait for all data to be settled before displaying the results but I could if there were only a few
-//miliseconds separating each call. I am making 10 separate calls so I will want to use a loop to iterate through all
-//the calls. EG I don't want to do setTimeout 10 separate times. I want to make a for loop that increases the timeout
-//duration by 50ms for each call. I don't think I need await for this because I'm not awaiting anything I'm just
-//making an array of calls to be called. I will also use these fetch calls w/ the useEffect hook, I think... not important
-//just yet.
+
+//making an array of 10 elements which are all the same URL
+//the for loop doesn't necessarily make an array. What I can do is push to apiArray
+
+function createApiArray() {
+  const array = [];
+  for (let i = 0; i < 10; i++) {
+    array.push("https://icanhazdadjoke.com/");
+  }
+  return array;
+}
+const urls = createApiArray();
+
+//now I have an array of URLs and maybe learned something about expressions vs statements by making it.
+//statements are like mathematical equations that return results, Expressions are like instructisons
+//getting each one to resolve individually is currently too complex for me so I will just use promise.all and wait
+//until all are settlted
+
+Promise.all(
+  urls.map(
+    setTimeout((url) => {
+      return fetch(url).then((resp) => resp.json());
+    }, 50)
+  )
+).then((array) => {
+  console.log(array[0]);
+});
+
+//Need to understand why chat GPT suggested this code:
+//specifically what is new Proimse and why are we using it?!
+
+Promise.all(
+  urls.map((url) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        fetch(url)
+          .then((resp) => resp.json())
+          .then((data) => resolve(data))
+          .catch((error) => resolve({ error }));
+      }, 50);
+    });
+  })
+).then((array) => {
+  console.log(array[0]);
+});
