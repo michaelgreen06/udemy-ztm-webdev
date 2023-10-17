@@ -58,3 +58,9 @@ Promise.all(
 ).then((array) => {
   console.log(array[0]);
 });
+
+//trying to remember where I left off and what I need to do next. I created an array of APIs that need to be called
+//to fill each card.
+//always return the result of .then() so there is something for the next .then() in the chain to accept
+
+//10/18/23 re-watch async videos and try to understand the above code from chat GPT
