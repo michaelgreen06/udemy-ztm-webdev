@@ -64,3 +64,35 @@ Promise.all(
 //always return the result of .then() so there is something for the next .then() in the chain to accept
 
 //10/18/23 re-watch async videos and try to understand the above code from chat GPT
+//I think I understand what is happening w/ the chat GPT code. We had to create a new promise w/
+//fetch inside of it so that we can control when fetch is called. If we don't wrap fetch in a promise it will
+//execute right away. We use the resolve argument in the call back function of the promise constructor to move
+//the promise into the fulfilled state.
+
+//My try w/o help
+
+Promise.all(
+  urls.map(
+    setTimeout((url) => {
+      return fetch(url).then((resp) => resp.json());
+    }, 50)
+  )
+).then((array) => {
+  console.log(array[0]);
+});
+
+Promise.all(
+  urls.map((url) => {
+    return new Promise((resolve) => {
+      setTimeout((url) => {
+        fetch(url)
+          .then((resp) => resp.json())
+          .then((data) => resolve(data))
+          .then((error) => resolve(error));
+      }, 50);
+    });
+  })
+);
+
+//10/19/23
+//rewrite the promise.all function entirely from scratch!!
