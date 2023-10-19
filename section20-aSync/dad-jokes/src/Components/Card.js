@@ -96,3 +96,21 @@ Promise.all(
 
 //10/19/23
 //rewrite the promise.all function entirely from scratch!!
+//1145 I am trying to get a new array that makes fetch calls after 50ms each
+//I have an array of urls and I want one URL to get called then wait 50 ms and fetch the next URL
+//do I need to declare this as a variable? Not sure.
+
+Promise.all(
+  urls.map((url) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        fetch(url)
+          .then((resp) => resp.json())
+          .then((data) => resolve(data))
+          .catch((error) => resolve(error));
+      }, 50);
+    });
+  })
+);
+
+//10/20/23 rewrite the Promise.all statement from scratch again
