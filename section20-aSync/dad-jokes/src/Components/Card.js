@@ -66,7 +66,7 @@ Promise.all(
 //10/18/23 re-watch async videos and try to understand the above code from chat GPT
 //I think I understand what is happening w/ the chat GPT code. We had to create a new promise w/
 //fetch inside of it so that we can control when fetch is called. If we don't wrap fetch in a promise it will
-//execute right away. We use the resolve argument in the call back function of the promise constructor to move
+//execute right away. We use the resolve argument in the callback function of the promise constructor to move
 //the promise into the fulfilled state.
 
 //My try w/o help
@@ -113,4 +113,21 @@ Promise.all(
   })
 );
 
-//10/20/23 rewrite the Promise.all statement from scratch again
+//11/13/23 rewrite the Promise.all statement from scratch again
+
+//promise.all takes an iterable of promises & //returns a single promise
+//w/ a resulf from all the promises that were passed to it
+//I want to pass the iterable of promises that are fetch calls to the icanhazdadjoke api.
+//I know i need to make a new promise. I have an array of urls and I want to use map to call them one at a time
+//after a 50ms timeout.
+//one way I can use Promise.all([promise1,promise2,promise3,etc]). w/ this way the promises are defined elsewhere
+//then passed into promise.all. the way I'm doing it RN is to create the array of promises w/in promise.all
+//perhaps I could define the promises elsewhere?!
+
+//creating a variable to define the array of promises that will be passed into promise.all because it could be easier
+
+const promiseArray = urls.map((url) => {
+  new Promise(fetch(url));
+});
+
+//11/14/23 - figure out how to complete the above promiseArray variable. needs timeout and resolve,reject
