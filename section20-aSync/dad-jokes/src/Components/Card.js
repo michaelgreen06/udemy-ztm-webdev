@@ -122,7 +122,7 @@ Promise.all(
 //after a 50ms timeout.
 //one way I can use Promise.all([promise1,promise2,promise3,etc]). w/ this way the promises are defined elsewhere
 //then passed into promise.all. the way I'm doing it RN is to create the array of promises w/in promise.all
-//perhaps I could define the promises elsewhere?! disabling actions.
+//perhaps I could define the promises elsewhere?! tried disabling pages a different way
 
 //creating a variable to define the array of promises that will be passed into promise.all because it could be easier
 
