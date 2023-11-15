@@ -1,24 +1,25 @@
 import React from "react";
 import Card from "./Card";
 
-const CardList = ({}) => {
-  const jokeData = () => {
-    const array = [];
-    for (let i = 1; i < 11; i = i + 1) {
-      array.push({ id: i, data: i });
-    }
-    return array;
-  };
+const CardList = ({ jokes }) => {
+  // const jokeData = () => {
+  //   const array = [];
+  //   for (let i = 1; i < 11; i = i + 1) {
+  //     array.push({ id: i, data: i });
+  //   }
+  //   return array;
+  // };
+
   //I believe I need to change this to be an array of jokes from icanhazdadjoke instead of the random array above
-  const data = jokeData();
+  // const data = jokeData();
   return (
     <div>
-      {data.map((item, i) => {
+      {jokes.map((item, i) => {
         return (
           <Card
             key={i}
             id={item.id}
-            joke={item.data}
+            joke={item.joke}
           />
         );
       })}
@@ -34,3 +35,5 @@ export default CardList;
 
 //11/15/23 use useEffect to fetch data from icanhazdadjoke and get an array of jokes then feed those jokes into each card using map
 //The current api responses include joke ID
+
+//the api returns an array of joke objects w/ id, joke & status keys
