@@ -1,11 +1,12 @@
 import React from "react";
+import "./Card.css";
 
 const Card = function ({ id, joke }) {
   return (
-    <div className="bg-green tc dib ma2 fl w-49">
+    <div className="bg-green ba tc dib w-33 b--blue bw-5 flex-grow-1 min-height-250">
       {/* <h1 className="bg-blue pa1">{`Joke #${jokeNum}`}</h1> */}
-      <h2>{`Joke ID: ${id}`}</h2>
-      <p className="bg-green pa2"> {joke}</p>
+      <h2 className="ma2">{`Joke ID: ${id}`}</h2>
+      <p className="ma2"> {joke}</p>
     </div>
   );
 };

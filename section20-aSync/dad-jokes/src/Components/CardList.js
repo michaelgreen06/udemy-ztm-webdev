@@ -13,7 +13,7 @@ const CardList = ({ jokes }) => {
   //I believe I need to change this to be an array of jokes from icanhazdadjoke instead of the random array above
   // const data = jokeData();
   return (
-    <div>
+    <div className="flex flex-wrap">
       {jokes.map((item, i) => {
         return (
           <Card
