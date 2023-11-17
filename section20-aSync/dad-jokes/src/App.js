@@ -6,6 +6,7 @@ import Button from "./Components/Button";
 
 function App() {
   const [jokes, setJokes] = useState([]);
+  const [buttonClicked, setButtonClicked] = useState(false);
   useEffect(() => {
     function createApiArray() {
       const array = [];
@@ -27,7 +28,10 @@ function App() {
         });
       })
     ).then((array) => setJokes(array));
-  }, []);
+  }, [buttonClicked]);
+ //need to figure out how to handle the handleButtonClicked variable
+  const handleButtonClicked=
+
   return jokes.length ? (
     <div>
       <Title />

@@ -28,8 +28,9 @@ export default Card;
 // const urls = createApiArray();
 
 //now I have an array of URLs and maybe learned something about expressions vs statements by making it.
-//statements are like mathematical equations that return results, Expressions are like instructisons
-//getting each one to resolve individually is currently too complex for me so I will just use promise.all and wait
+//expressions are like mathematical equations that return results, statements are like instructisons
+//that control the flow of a program. if, for, return etc all indicate a satement. EG conditional statement
+//individually is currently too complex for me so I will just use promise.all and wait
 //until all are settlted
 
 //Need to understand why chat GPT suggested this code:
