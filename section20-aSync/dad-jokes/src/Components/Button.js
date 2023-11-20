@@ -1,8 +1,11 @@
 import React from "react";
 
-const Button = () => {
+const Button = ({ onClick }) => {
   return (
-    <div className="flex justify-center items-center pa3">
+    <div
+      onClick={onClick}
+      className="flex justify-center items-center pa3"
+    >
       <button className="bg-orange grow">More jokes please!</button>
     </div>
   );

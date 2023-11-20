@@ -7,6 +7,7 @@ import Button from "./Components/Button";
 function App() {
   const [jokes, setJokes] = useState([]);
   const [buttonClicked, setButtonClicked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     function createApiArray() {
       const array = [];
@@ -16,6 +17,7 @@ function App() {
       return array;
     }
     const urls = createApiArray();
+    setIsLoading(true);
     Promise.all(
       urls.map((url) => {
         return new Promise((resolve) => {
@@ -27,19 +29,25 @@ function App() {
           }, 50);
         });
       })
-    ).then((array) => setJokes(array));
+    )
+      .then((array) => setJokes(array))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [buttonClicked]);
- //need to figure out how to handle the handleButtonClicked variable
-  const handleButtonClicked=
 
-  return jokes.length ? (
+  const handleButtonClicked = () => {
+    setButtonClicked(!buttonClicked);
+  };
+
+  return isLoading ? (
+    <h1 className="vh-100 flex items-center justify-center f1">Loading...</h1>
+  ) : (
     <div>
       <Title />
-      <Button />
+      <Button onClick={handleButtonClicked} />
       <CardList jokes={jokes} />
     </div>
-  ) : (
-    <h1 className="vh-100 flex items-center justify-center f1">Loading...</h1>
   );
 }
 
