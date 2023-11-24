@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import Location from "./Components/Location";
+import WetBulb from "./Components/WetBulb";
+import WeatherDeets from "./Components/WeatherDeets";
 
 function App() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
+  const [weather, setWeather] = useState({});
 
   useEffect(
     function fetchWeather() {
@@ -12,13 +16,12 @@ function App() {
         )
           .then((resp) => resp.json())
           .then((data) => {
-            console.log(data);
+            setWeather(data);
           })
           .catch((error) => console.error(error));
       }
-      fetchWeather();
     },
-    [longitude, latitude]
+    [latitude, longitude]
   );
 
   function locate() {
@@ -37,12 +40,16 @@ function App() {
         setLongitude(position.coords.longitude);
       })
       .catch((error) => console.error("failed to get location: ", error));
-  });
+  }, []);
 
   return (
     <div>
-      <h1>your latitude is: {latitude}</h1>
-      <h1>your longitude is: {longitude}</h1>
+      <Location weather={weather} />
+      <WetBulb weather={weather} />
+      <WeatherDeets weather={weather} />
+      <p>your latitude is: {latitude}</p>
+      <p>your longitude is: {longitude}</p>
+      <p>calculations based on: https://www.omnicalculator.com/physics/wet-bulb</p>
     </div>
   );
 }
@@ -75,3 +82,9 @@ export default App;
 //the promises to settle before doing something w/ the data. I don't think I need to wait for all of the promises to settle because
 //I am getting the data from the geolocation API and am then using it in the openweather api. I haven't done much coding but I have
 //learned a few things and have done some architecting. I could build the wbt component and the location component.
+
+//I have a location component to show the location. I will have a WBT component that calculates and displays the WBT. Do I want to make
+//a component for the refresh location button? Do I even want to give the option to refresh location or do I want to do as MVP as possible
+//I want to exercise the muscle of doing as min as possible! So I won't have a button for refresh my location. Is there anything else
+//that I need to plan before I start building? Maybe I could think about what will be passed to things? I think I'd rather just
+//build and find out as I build because that is going to be the fastest and easiest way RN.

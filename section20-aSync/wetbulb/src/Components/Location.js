@@ -1,7 +1,14 @@
 import React from "react";
 
-const Location = ({}) => {
-  return <div></div>;
+const Location = ({ weather }) => {
+  console.log(weather);
+  return (
+    <div>
+      <h1>
+        Your location is: {weather.name}, {weather.sys.country}
+      </h1>
+    </div>
+  );
 };
 
 export default Location;
