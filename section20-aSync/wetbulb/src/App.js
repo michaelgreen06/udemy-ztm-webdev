@@ -17,6 +17,7 @@ function App() {
           .then((resp) => resp.json())
           .then((data) => {
             setWeather(data);
+            console.log("weather data", data);
           })
           .catch((error) => console.error(error));
       }
@@ -25,17 +26,20 @@ function App() {
   );
 
   function locate() {
+    console.log("looks like locate function runs");
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         (position) => resolve(position),
         (error) => reject(error)
       );
+      console.log("locate RAN!");
     });
   }
 
   useEffect(() => {
     locate()
       .then((position) => {
+        console.log("These are your position coords: ", position);
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
       })
@@ -88,3 +92,6 @@ export default App;
 //I want to exercise the muscle of doing as min as possible! So I won't have a button for refresh my location. Is there anything else
 //that I need to plan before I start building? Maybe I could think about what will be passed to things? I think I'd rather just
 //build and find out as I build because that is going to be the fastest and easiest way RN.
+
+//I have converted the locate function into a promise from a callback. Maybe this is causing the issue that is preventing it from
+//running properly?
