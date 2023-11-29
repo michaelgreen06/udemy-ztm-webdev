@@ -7,44 +7,62 @@ function App() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [weather, setWeather] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const weatherAPIKey = process.env.REACT_APP_WEATHER_API_KEY;
 
   useEffect(
     function fetchWeather() {
-      if (latitude !== "" && longitude !== "") {
+      if (typeof latitude === "number" && typeof longitude === "number") {
         fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=dfd00a0b3921425262c44a3a2c7508ad`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weatherAPIKey}`
         )
           .then((resp) => resp.json())
           .then((data) => {
             setWeather(data);
-            console.log("weather data", data);
+            setIsLoading(false);
+            setError(null);
           })
-          .catch((error) => console.error(error));
+          .catch((error) => {
+            console.error(error);
+            setIsLoading(false);
+            setError("Failed to load weather data.");
+          });
       }
     },
-    [latitude, longitude]
+    [latitude, longitude, weatherAPIKey]
   );
 
   function locate() {
-    console.log("looks like locate function runs");
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         (position) => resolve(position),
         (error) => reject(error)
       );
-      console.log("locate RAN!");
     });
   }
 
   useEffect(() => {
+    setIsLoading(true);
     locate()
       .then((position) => {
-        console.log("These are your position coords: ", position);
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
+        setError(null);
       })
-      .catch((error) => console.error("failed to get location: ", error));
+      .catch((error) => {
+        setError("Failed to get location");
+        setIsLoading(false);
+      });
   }, []);
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div>

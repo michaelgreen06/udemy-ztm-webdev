@@ -1,7 +1,6 @@
 import React from "react";
 
 const Location = ({ weather }) => {
-  console.log(weather);
   return (
     <div>
       <h1>
