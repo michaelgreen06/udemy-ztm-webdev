@@ -48,3 +48,5 @@ function App() {
 }
 
 export default App;
+
+//12/5/23 look into using the built in AutoComplete component instead of using this approacth
