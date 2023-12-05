@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Location from "./Components/Location";
 import WetBulb from "./Components/WetBulb";
 import WeatherDeets from "./Components/WeatherDeets";
+import SearchBox from "./Components/SearchBox";
 
 function App() {
   const [latitude, setLatitude] = useState("");
@@ -66,6 +67,7 @@ function App() {
 
   return (
     <div>
+      <SearchBox />
       <Location weather={weather} />
       <WetBulb weather={weather} />
       <WeatherDeets weather={weather} />
