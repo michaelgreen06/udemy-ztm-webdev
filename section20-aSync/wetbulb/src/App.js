@@ -5,12 +5,16 @@ import WeatherDeets from "./Components/WeatherDeets";
 import SearchBox from "./Components/SearchBox";
 
 function App() {
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
   const [weather, setWeather] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const weatherAPIKey = process.env.REACT_APP_WEATHER_API_KEY;
+  const handleLocationSelect = (lat, lng) => {
+    setLatitude(lat);
+    setLongitude(lng);
+  };
 
   useEffect(
     function fetchWeather() {
@@ -58,7 +62,13 @@ function App() {
   }, []);
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return (
+      <div>
+        <p>Error: {error}</p>
+        <h2>Search for a location</h2>
+        <SearchBox />
+      </div>
+    );
   }
 
   if (isLoading) {
@@ -67,7 +77,7 @@ function App() {
 
   return (
     <div>
-      <SearchBox />
+      <SearchBox onLocationSelect={handleLocationSelect} />
       <Location weather={weather} />
       <WetBulb weather={weather} />
       <WeatherDeets weather={weather} />
