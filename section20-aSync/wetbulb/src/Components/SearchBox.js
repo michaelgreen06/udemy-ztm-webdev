@@ -1,22 +1,23 @@
 //new code from Akash example
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { StandaloneSearchBox, useJsApiLoader } from "@react-google-maps/api";
 const libraries = ["places"];
-const PlaceComponent = () => {
+const SearchBox = ({ onLocationSelect }) => {
   const inputRef = useRef();
-
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
+    googleMapsApiKey: process.env.REACT_APP_G_PLACES_API_KEY,
     libraries,
   });
 
   const handlePlaceChanged = () => {
     const [place] = inputRef.current.getPlaces();
     if (place) {
-      console.log(place.formatted_address);
-      console.log(place.geometry.location.lat());
-      console.log(place.geometry.location.lng());
+      const lng = place.geometry.location.lng();
+      const lat = place.geometry.location.lat();
+      console.log("Longitude= ", lng);
+      console.log("Latitude= ", lat);
+      onLocationSelect(lat, lng);
     }
   };
 
@@ -36,9 +37,9 @@ const PlaceComponent = () => {
   );
 };
 
-export default PlaceComponent;
+export default SearchBox;
 
-//12/5/23 look into using the built in AutoComplete component instead of using this approacth
+//12/12/23 get app to take latitude1 & longitude1 to update the weather information
 
 //Resources
 //@react-google-maps/api docs: https://web.archive.org/web/20230701010714mp_/https://react-google-maps-api-docs.netlify.app/#useloadscript

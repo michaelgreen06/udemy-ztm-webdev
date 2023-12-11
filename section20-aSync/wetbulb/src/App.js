@@ -7,13 +7,15 @@ import SearchBox from "./Components/SearchBox";
 function App() {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [longitude1, setLongitude1] = useState(null);
+  const [latitude1, setLatitude1] = useState(null);
   const [weather, setWeather] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const weatherAPIKey = process.env.REACT_APP_WEATHER_API_KEY;
   const handleLocationSelect = (lat, lng) => {
-    setLatitude(lat);
-    setLongitude(lng);
+    setLatitude1(lat);
+    setLongitude1(lng);
   };
 
   useEffect(
@@ -83,6 +85,8 @@ function App() {
       <WeatherDeets weather={weather} />
       <p>your latitude is: {latitude}</p>
       <p>your longitude is: {longitude}</p>
+      <p>your latitude1 is: {latitude1}</p>
+      <p>your longitude1 is: {longitude1}</p>
       <p>calculations based on: https://www.omnicalculator.com/physics/wet-bulb</p>
     </div>
   );
