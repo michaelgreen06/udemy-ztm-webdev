@@ -7,15 +7,15 @@ import SearchBox from "./Components/SearchBox";
 function App() {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
-  const [longitude1, setLongitude1] = useState(null);
-  const [latitude1, setLatitude1] = useState(null);
+  // const [longitude1, setLongitude1] = useState(null);
+  // const [latitude1, setLatitude1] = useState(null);
   const [weather, setWeather] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const weatherAPIKey = process.env.REACT_APP_WEATHER_API_KEY;
   const handleLocationSelect = (lat, lng) => {
-    setLatitude1(lat);
-    setLongitude1(lng);
+    setLatitude(lat);
+    setLongitude(lng);
   };
 
   useEffect(
@@ -68,7 +68,7 @@ function App() {
       <div>
         <p>Error: {error}</p>
         <h2>Search for a location</h2>
-        <SearchBox />
+        <SearchBox onLocationSelect={handleLocationSelect} />
       </div>
     );
   }
@@ -79,15 +79,16 @@ function App() {
 
   return (
     <div>
-      <SearchBox onLocationSelect={handleLocationSelect} />
       <Location weather={weather} />
       <WetBulb weather={weather} />
       <WeatherDeets weather={weather} />
       <p>your latitude is: {latitude}</p>
       <p>your longitude is: {longitude}</p>
-      <p>your latitude1 is: {latitude1}</p>
-      <p>your longitude1 is: {longitude1}</p>
-      <p>calculations based on: https://www.omnicalculator.com/physics/wet-bulb</p>
+      <div>
+        <h1>Search for a new location</h1>
+        <SearchBox onLocationSelect={handleLocationSelect} />
+      </div>
+      <p>*calculations based on: https://www.omnicalculator.com/physics/wet-bulb</p>
     </div>
   );
 }
