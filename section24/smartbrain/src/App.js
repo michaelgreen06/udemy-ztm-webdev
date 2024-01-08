@@ -20,7 +20,7 @@ function App() {
     console.log("input", input);
     console.log("target", e.target.value);
   }
-  function handleClick() {
+  function onButtonSubmit() {
     console.log("click");
   }
   return (
@@ -31,7 +31,7 @@ function App() {
       <Rank />
       <ImageLink
         handleInput={handleInput}
-        handleClick={handleClick}
+        handleClick={onButtonSubmit}
       />
     </div>
   );
@@ -46,8 +46,8 @@ function App() {
 const PAT = "a840456b0c9f405c86062cf401200e21";
 // Specify the correct user_id/app_id pairings
 // Since you're making inferences outside your app's scope
-const USER_ID = "an9sqf1wtiqi";
-const APP_ID = "smartBrain";
+const USER_ID = "clarifai";
+const APP_ID = "main";
 // Change these to whatever model and image URL you want to use
 const MODEL_ID = "face-detection";
 const IMAGE_URL = "https://samples.clarifai.com/metro-north.jpg";
