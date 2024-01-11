@@ -16,6 +16,7 @@ const particleSettings = {
 
 function App() {
   const [input, setInput] = useState("");
+  const [box, setBox] = useState({});
   // Your PAT (Personal Access Token) can be found in the portal under Authentification
   const PAT = "a840456b0c9f405c86062cf401200e21";
   // Specify the correct user_id/app_id pairings
@@ -25,18 +26,31 @@ function App() {
   // Change these to whatever model and image URL you want to use
   const MODEL_ID = "face-detection";
   const IMAGE_URL = input;
+
   function handleInput(e) {
     setInput(e.target.value);
   }
+
   function onButtonSubmit() {
     console.log("click");
     fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/outputs", requestOptions)
       .then((response) => response.json())
       .then((result) =>
-        console.log(result.outputs[0].data.regions[0].region_info.bounding_box)
+        setBox(result.outputs[0].data.regions[0].region_info.bounding_box)
       )
       .catch((error) => console.log("error", error));
+    console.log(box);
   }
+
+  // function faceStuff(){
+  //  const imageWidth
+  //  const imageHeight
+  //   return{
+  //     leftCol:box.left_col*imageWidth,
+  //     rightCol;,
+  //     topRow:box.top_row*imageHeight,
+  //     bottomRow:
+  // }
 
   const raw = JSON.stringify({
     user_app_id: {
