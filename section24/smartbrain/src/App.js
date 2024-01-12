@@ -43,13 +43,13 @@ function App() {
   }
 
   // function faceStuff(){
-  //  const imageWidth
-  //  const imageHeight
+  //  const imageWidth=document.getElementById("inputImage").width;
+  //  const imageHeight=document.getElementById("inputImage").height;
   //   return{
   //     leftCol:box.left_col*imageWidth,
-  //     rightCol;,
+  //     rightCol;box.left_col*imageWidthf,
   //     topRow:box.top_row*imageHeight,
-  //     bottomRow:
+  //     bottomRow:box.bottom_row*imageHeight
   // }
 
   const raw = JSON.stringify({
