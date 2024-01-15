@@ -33,7 +33,7 @@ function App() {
 
   function onButtonSubmit() {
     console.log("click");
-    fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/outputs", requestOptions)
+    fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/outputs", requestOptions) //only accepts links that end w/ .jpg!
       .then((response) => response.json())
       .then((result) =>
         setBox(result.outputs[0].data.regions[0].region_info.bounding_box)
@@ -46,11 +46,27 @@ function App() {
   //  const imageWidth=document.getElementById("inputImage").width;
   //  const imageHeight=document.getElementById("inputImage").height;
   //   return{
-  //     leftCol:box.left_col*imageWidth,
-  //     rightCol;box.left_col*imageWidthf,
-  //     topRow:box.top_row*imageHeight,
-  //     bottomRow:box.bottom_row*imageHeight
+  //     leftX:box.left_col*imageWidth,
+  //     rightX:box.right_col*imageWidth,
+  //     topY:box.top_row*imageHeight,
+  //     bottomY:box.bottom_row*imageHeight
   // }
+
+  //what am I wanting to happen here? I think I want to get this to work using my own 4 dots method so that I can learn more deeply
+  //faceStuff() returns an object that says where each of the 4 dots will be located. They all are calculated from the same point
+  //which is all the way left and either top or bottom of the image. I have the object w/ the relevant info then what do I do with
+  //this info? I use CSS in the empty div in the FaceRecognition component. So I would pass in the result of faceStuff() into
+  //FaceRecognition somehow. What I pass in depends on how the CSS is formatted. I will have 4 separate dots and they will each
+  //have their own positions. GPT recomended using a forEach loop to make each of the positions for these dots. If i call faceStuff()
+  //then it will return an object. does that mean I would pass faceStuff into FaceRecognition?! What would I pass it as? yes! I believe
+  //I can absolutely pass faceStuff function into FaceRecognititon. When faceStuff() is executed it returns an object that object
+  //has coordinates of where each dot goes. in the response values are re-used. the top row is used twice the left col is used 2x
+  //etc etc. each dot has an x&y coordinate that needs to be plotted in order to put it at the right spot. the response is giving
+  //me values in % but I need to convert them to px in my faceStuff function. I believe my faceStuff function is converting
+  //the outputs from the API into px. Now how do I feed them into the CSS so it makes dots at those points?! Would it be w/in the css?
+  //w/in the css there will be specific styles for dots. The coordinates will be w/in the js?! I have 4 different <div>s and
+  //and they each have a position attribute? No! They have a top & left attribute.
+  //where is the forloop going to run?! I want the results of the 4 loop to be returned in the facerecognition component.
 
   const raw = JSON.stringify({
     user_app_id: {
