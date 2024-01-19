@@ -15,7 +15,9 @@ const particleSettings = {
 };
 
 function App() {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(
+    "https://techgirlsglobal.org/wp-content/uploads/2023/01/79F8E534-17E4-47A6-88A0-8B9D19811879-%E5%BC%B5%E6%81%A9%E6%85%88-Grace-Chang.jpg"
+  );
   const [box, setBox] = useState({});
   // Your PAT (Personal Access Token) can be found in the portal under Authentification
   const PAT = "a840456b0c9f405c86062cf401200e21";
