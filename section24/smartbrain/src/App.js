@@ -18,7 +18,7 @@ function App() {
   const [input, setInput] = useState(
     "https://techgirlsglobal.org/wp-content/uploads/2023/01/79F8E534-17E4-47A6-88A0-8B9D19811879-%E5%BC%B5%E6%81%A9%E6%85%88-Grace-Chang.jpg"
   );
-  const [box, setBox] = useState({});
+  // const [box, setBox] = useState({});
   // Your PAT (Personal Access Token) can be found in the portal under Authentification
   const PAT = "a840456b0c9f405c86062cf401200e21";
   // Specify the correct user_id/app_id pairings
@@ -37,13 +37,14 @@ function App() {
     console.log("click");
     fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/outputs", requestOptions) //only accepts links that end w/ .jpg!
       .then((response) => response.json())
-      .then((result) =>
-        setBox(result.outputs[0].data.regions[0].region_info.bounding_box)
-      )
+      .then((result) => {
+        const boxData = result.outputs[0].data.regions[0].region_info.bounding_box;
+        const faceData = faceStuff(boxData);
+      })
       .catch((error) => console.log("error", error));
   }
 
-  function faceStuff() {
+  function faceStuff(box) {
     const imageWidth = document.getElementById("inputImage").width;
     const imageHeight = document.getElementById("inputImage").height;
     return {
@@ -54,7 +55,7 @@ function App() {
     };
   }
 
-  const result = faceStuff();
+  // const result = faceStuff();
 
   const raw = JSON.stringify({
     user_app_id: {
@@ -93,7 +94,7 @@ function App() {
       />
       <FaceRecognition
         imageSrc={IMAGE_URL}
-        dotPos={result}
+        dotPos={faceData}
       />
     </div>
   );
