@@ -15,10 +15,8 @@ const particleSettings = {
 };
 
 function App() {
-  const [input, setInput] = useState(
-    "https://techgirlsglobal.org/wp-content/uploads/2023/01/79F8E534-17E4-47A6-88A0-8B9D19811879-%E5%BC%B5%E6%81%A9%E6%85%88-Grace-Chang.jpg"
-  );
-  // const [box, setBox] = useState({});
+  const [input, setInput] = useState("");
+  const [faceData, setFaceData] = useState({});
   // Your PAT (Personal Access Token) can be found in the portal under Authentification
   const PAT = "a840456b0c9f405c86062cf401200e21";
   // Specify the correct user_id/app_id pairings
@@ -38,24 +36,21 @@ function App() {
     fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/outputs", requestOptions) //only accepts links that end w/ .jpg!
       .then((response) => response.json())
       .then((result) => {
-        const boxData = result.outputs[0].data.regions[0].region_info.bounding_box;
-        const faceData = faceStuff(boxData);
+        return result.outputs[0].data.regions[0].region_info.bounding_box;
+      })
+      .then((boxData) => {
+        const imageWidth = document.getElementById("inputImage").width;
+        const imageHeight = document.getElementById("inputImage").height;
+        const faceDots = {
+          leftX: boxData.left_col * imageWidth,
+          rightX: boxData.right_col * imageWidth,
+          topY: boxData.top_row * imageHeight,
+          bottomY: boxData.bottom_row * imageHeight,
+        };
+        setFaceData(faceDots);
       })
       .catch((error) => console.log("error", error));
   }
-
-  function faceStuff(box) {
-    const imageWidth = document.getElementById("inputImage").width;
-    const imageHeight = document.getElementById("inputImage").height;
-    return {
-      leftX: box.left_col * imageWidth,
-      rightX: box.right_col * imageWidth,
-      topY: box.top_row * imageHeight,
-      bottomY: box.bottom_row * imageHeight,
-    };
-  }
-
-  // const result = faceStuff();
 
   const raw = JSON.stringify({
     user_app_id: {
