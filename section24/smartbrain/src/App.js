@@ -6,6 +6,7 @@ import Rank from "./Components/Rank/Rank";
 import ParticlesBg from "particles-bg";
 import { useState } from "react";
 import FaceRecognition from "./Components/FaceRecognition/FaceRecognition";
+import Signin from "./Components/Signin/Signin";
 
 const particleSettings = {
   className: "particles",
@@ -17,6 +18,7 @@ const particleSettings = {
 function App() {
   const [input, setInput] = useState("");
   const [faceData, setFaceData] = useState({});
+  const [route, setRoute] = useState("signin");
   // Your PAT (Personal Access Token) can be found in the portal under Authentification
   const PAT = "a840456b0c9f405c86062cf401200e21";
   // Specify the correct user_id/app_id pairings
@@ -52,6 +54,10 @@ function App() {
       .catch((error) => console.log("error", error));
   }
 
+  function onRouteChange(route) {
+    setRoute(route);
+  }
+
   const raw = JSON.stringify({
     user_app_id: {
       user_id: USER_ID,
@@ -80,17 +86,23 @@ function App() {
   return (
     <div className="App">
       <ParticlesBg {...particleSettings} />
-      <Navigation />
-      <Logo />
-      <Rank />
-      <ImageLink
-        handleInput={handleInput}
-        handleClick={onButtonSubmit}
-      />
-      <FaceRecognition
-        imageSrc={IMAGE_URL}
-        dotPos={faceData}
-      />
+      <Navigation onRouteChange={onRouteChange} />
+      {route === "signin" ? (
+        <Signin onRouteChange={onRouteChange} />
+      ) : (
+        <>
+          <Logo />
+          <Rank />
+          <ImageLink
+            handleInput={handleInput}
+            handleClick={onButtonSubmit}
+          />
+          <FaceRecognition
+            imageSrc={IMAGE_URL}
+            dotPos={faceData}
+          />
+        </>
+      )}
     </div>
   );
 }
