@@ -7,6 +7,7 @@ import ParticlesBg from "particles-bg";
 import { useState } from "react";
 import FaceRecognition from "./Components/FaceRecognition/FaceRecognition";
 import Signin from "./Components/Signin/Signin";
+import Register from "./Components/Register/Register";
 
 const particleSettings = {
   className: "particles",
@@ -19,6 +20,7 @@ function App() {
   const [input, setInput] = useState("");
   const [faceData, setFaceData] = useState({});
   const [route, setRoute] = useState("signin");
+  const [isSignedIn, setisSignedIn] = useState(false);
   // Your PAT (Personal Access Token) can be found in the portal under Authentification
   const PAT = "a840456b0c9f405c86062cf401200e21";
   // Specify the correct user_id/app_id pairings
@@ -55,6 +57,11 @@ function App() {
   }
 
   function onRouteChange(route) {
+    if (route === "signin") {
+      setisSignedIn(false);
+    } else if (route === "home") {
+      setisSignedIn(true);
+    }
     setRoute(route);
   }
 
@@ -86,10 +93,11 @@ function App() {
   return (
     <div className="App">
       <ParticlesBg {...particleSettings} />
-      <Navigation onRouteChange={onRouteChange} />
-      {route === "signin" ? (
-        <Signin onRouteChange={onRouteChange} />
-      ) : (
+      <Navigation
+        onRouteChange={onRouteChange}
+        isSignedIn={isSignedIn}
+      />
+      {route === "home" ? (
         <>
           <Logo />
           <Rank />
@@ -102,6 +110,10 @@ function App() {
             dotPos={faceData}
           />
         </>
+      ) : route === "signin" ? (
+        <Signin onRouteChange={onRouteChange} />
+      ) : (
+        <Register onRouteChange={onRouteChange} />
       )}
     </div>
   );
