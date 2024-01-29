@@ -1,5 +1,7 @@
 import React from "react";
 
+//note to update things so I can get a green square 😂
+
 const Navigation = ({ onRouteChange, isSignedIn }) => {
   if (isSignedIn) {
     return (
